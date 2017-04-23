@@ -141,6 +141,7 @@
 				025414B51EACCA2F00022D84 /* Resources */,
 				F135E72553DF28EF4089746C /* [CP] Embed Pods Frameworks */,
 				E6953D50EB70F46D1AC91A80 /* [CP] Copy Pods Resources */,
+				029A926D1EACCF2600629935 /* Run Script SwiftLint */,
 			);
 			buildRules = (
 			);
@@ -235,6 +236,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		029A926D1EACCF2600629935 /* Run Script SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script SwiftLint";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
 		038E9111EC0ADFF3FAAA2838 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -549,6 +564,7 @@
 				025414D61EACCA3000022D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		025414D71EACCA3000022D84 /* Build configuration list for PBXNativeTarget "MyProjectTests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +573,7 @@
 				025414D91EACCA3000022D84 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
