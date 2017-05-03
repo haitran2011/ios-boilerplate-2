@@ -13,6 +13,7 @@
 		025414C21EACCA2F00022D84 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 025414C11EACCA2F00022D84 /* Assets.xcassets */; };
 		025414C51EACCA2F00022D84 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 025414C31EACCA2F00022D84 /* LaunchScreen.storyboard */; };
 		025414D01EACCA3000022D84 /* MyProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025414CF1EACCA3000022D84 /* MyProjectTests.swift */; };
+		025C35F81EBA138800E1C61B /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C35F71EBA138800E1C61B /* TableViewCell.swift */; };
 		02D8100A1EB9F2510038E027 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D810091EB9F2510038E027 /* NSObjectExtension.swift */; };
 		04ADEB35B2460D3F177557C2 /* Pods_MyProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0712A545AEF189AFACD9499D /* Pods_MyProjectTests.framework */; };
 		64807F2E8A3AB7ABEF2BBE8A /* Pods_MyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9A7CA44A337F4AA4B23A4F /* Pods_MyProject.framework */; };
@@ -39,6 +40,7 @@
 		025414CB1EACCA3000022D84 /* MyProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		025414CF1EACCA3000022D84 /* MyProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectTests.swift; sourceTree = "<group>"; };
 		025414D11EACCA3000022D84 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		025C35F71EBA138800E1C61B /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		02D810091EB9F2510038E027 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		0712A545AEF189AFACD9499D /* Pods_MyProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AEB2428738A2C9D5851CD6D /* Pods-MyProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProjectTests/Pods-MyProjectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 			children = (
 				025414BA1EACCA2F00022D84 /* AppDelegate.swift */,
 				025414BC1EACCA2F00022D84 /* ViewController.swift */,
+				025C35F71EBA138800E1C61B /* TableViewCell.swift */,
 				02D810091EB9F2510038E027 /* NSObjectExtension.swift */,
 				025414BE1EACCA2F00022D84 /* Main.storyboard */,
 				025414C11EACCA2F00022D84 /* Assets.xcassets */,
@@ -351,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				025414BD1EACCA2F00022D84 /* ViewController.swift in Sources */,
+				025C35F81EBA138800E1C61B /* TableViewCell.swift in Sources */,
 				02D8100A1EB9F2510038E027 /* NSObjectExtension.swift in Sources */,
 				025414BB1EACCA2F00022D84 /* AppDelegate.swift in Sources */,
 			);
