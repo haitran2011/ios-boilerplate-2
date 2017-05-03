@@ -8,16 +8,20 @@
 
 import Quick
 import Nimble
+import SwiftyJSON
 @testable import MyProject
 
 class ResourceSpec: QuickSpec {
     
     override func spec() {
         
-        it("is equal") {
-            let value = 1 + 1
+        it("can read local json file") {
+            let bundle = Bundle(for: type(of: self))
+            let json: JSON? = Resource
+                .jsonFrom(fileName: "article_test", bundle: bundle)
             
-            expect(value).to(equal(2))
+            let title: String? = json?["title"].string
+            expect(title).to(equal("タイトル"))
         }
     }
 }
