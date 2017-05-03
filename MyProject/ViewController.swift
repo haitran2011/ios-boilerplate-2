@@ -15,6 +15,18 @@ final class ViewController: UIViewController, UITableViewDataSource,
     
     @IBOutlet weak private var tableView: UITableView!
     
+    // MARK: - Property
+    
+    lazy private var articles: [Article] = {
+        var items: [Article] = []
+        
+        for index in 0..<40 {
+            items.append(Article(title: "セル \(index)"))
+        }
+        
+        return items
+    }()
+    
     // MARK: - Lifecycle
     
     override func viewDidLoad() {
@@ -39,15 +51,19 @@ final class ViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return articles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView
+        let cell: UITableViewCell = tableView
             .dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
         if let customCell = cell as? TableViewCell {
-            customCell.configure()
+            
+            if indexPath.row < articles.count {
+                let article: Article = articles[indexPath.row]
+                customCell.configure(with: article)
+            }
         }
         
         return cell

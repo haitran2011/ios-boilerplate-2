@@ -18,11 +18,17 @@ final class TableViewCell: UITableViewCell {
         titleLabel.setupPropertyForNonAlphaNumeric()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        // Clear cached images
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure() {
-        titleLabel.text = "セル"
+    func configure(with item: ListItem) {
+        titleLabel.text = item.title
     }
 }
