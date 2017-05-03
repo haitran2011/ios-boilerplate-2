@@ -8,14 +8,21 @@
 
 import UIKit
 
-class TableViewCell: UITableViewCell {
+final class TableViewCell: UITableViewCell {
+    
+    @IBOutlet weak private var titleLabel: Label!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        titleLabel.setupPropertyForNonAlphaNumeric()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
+    func configure() {
+        titleLabel.text = "セル"
+    }
 }
