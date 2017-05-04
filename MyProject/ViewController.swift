@@ -8,8 +8,16 @@
 
 import UIKit
 
-final class ViewController: UIViewController, UITableViewDataSource,
-    UITableViewDataSourcePrefetching, UITableViewDelegate {
+protocol ViewControllerInput {
+}
+
+protocol ViewControllerOutput {
+    var items: [ListItem]? { get }
+    func fetchItems()
+}
+
+final class ViewController: UIViewController, ListPresenterOutput,
+    UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate {
     
     // MARK: - Outlet
     
@@ -17,17 +25,15 @@ final class ViewController: UIViewController, UITableViewDataSource,
     
     // MARK: - Property
     
-    lazy private var items: [ListItem] = {
-        var _items: [Article] = []
-        
-        for index in 0..<40 {
-            _items.append(Article(title: "セル \(index)"))
-        }
-        
-        return _items
-    }()
+    private var output: ViewControllerOutput?
     
     // MARK: - Lifecycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        output = ListPresenter(output: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,10 +44,18 @@ final class ViewController: UIViewController, UITableViewDataSource,
         
         tableView.estimatedRowHeight = 44.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        output?.fetchItems()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - ListPresenterOutput
+    
+    func displayFetchedItems() {
+        tableView.reloadData()
     }
     
     // MARK: - UITableViewDataSource
@@ -51,12 +65,16 @@ final class ViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return output?.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView
             .dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+        
+        guard let items = output?.items else {
+            return cell
+        }
         
         if let customCell = cell as? TableViewCell {
             
