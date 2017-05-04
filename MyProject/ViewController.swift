@@ -17,14 +17,14 @@ final class ViewController: UIViewController, UITableViewDataSource,
     
     // MARK: - Property
     
-    lazy private var articles: [Article] = {
-        var items: [Article] = []
+    lazy private var items: [ListItem] = {
+        var _items: [Article] = []
         
         for index in 0..<40 {
-            items.append(Article(title: "セル \(index)"))
+            _items.append(Article(title: "セル \(index)"))
         }
         
-        return items
+        return _items
     }()
     
     // MARK: - Lifecycle
@@ -51,7 +51,7 @@ final class ViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return articles.count
+        return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,9 +60,9 @@ final class ViewController: UIViewController, UITableViewDataSource,
         
         if let customCell = cell as? TableViewCell {
             
-            if indexPath.row < articles.count {
-                let article: Article = articles[indexPath.row]
-                customCell.configure(with: article)
+            if indexPath.row < items.count {
+                let item: ListItem = items[indexPath.row]
+                customCell.configure(with: item)
             }
         }
         
