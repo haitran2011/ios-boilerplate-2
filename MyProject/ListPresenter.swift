@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 protocol ListPresenterInput {
 }
@@ -34,9 +35,19 @@ class ListPresenter: ListPresenterInput, ViewControllerOutput {
     func fetchItems() {
         var articles: [Article] = []
         
-        for index in 0..<40 {
-            articles.append(Article(title: "セル \(index)"))
+        if let json = Resource.jsonFrom(fileName: "articles") {
+            
+            if let jsonArray = json["articles"].array {
+                
+                for jsonObj in jsonArray {
+                    let title: String? = jsonObj["title"].string
+                    let article = Article(title: title)
+                    
+                    articles.append(article)
+                }
+            }
         }
+        
         _items = articles
         
         output?.displayFetchedItems()
