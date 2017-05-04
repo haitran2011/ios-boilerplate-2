@@ -11,4 +11,5 @@ import Foundation
 protocol ListItem {
     
     var title: String? { get }
+    var imageURL: URL? { get }
 }

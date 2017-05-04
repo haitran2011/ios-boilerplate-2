@@ -28,6 +28,8 @@
 		025C36111EBA556B00E1C61B /* article_test.json in Resources */ = {isa = PBXBuildFile; fileRef = 025C36101EBA556B00E1C61B /* article_test.json */; };
 		025C36141EBA581600E1C61B /* articles.json in Resources */ = {isa = PBXBuildFile; fileRef = 025C36131EBA581600E1C61B /* articles.json */; };
 		025C36161EBB08F700E1C61B /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025C36151EBB08F700E1C61B /* ListPresenter.swift */; };
+		025C36181EBBAD4A00E1C61B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025C36171EBBAD4A00E1C61B /* Kingfisher.framework */; };
+		025C36191EBBAD7B00E1C61B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025C36171EBBAD4A00E1C61B /* Kingfisher.framework */; };
 		02D8100A1EB9F2510038E027 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D810091EB9F2510038E027 /* NSObjectExtension.swift */; };
 		04ADEB35B2460D3F177557C2 /* Pods_MyProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0712A545AEF189AFACD9499D /* Pods_MyProjectTests.framework */; };
 		64807F2E8A3AB7ABEF2BBE8A /* Pods_MyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9A7CA44A337F4AA4B23A4F /* Pods_MyProject.framework */; };
@@ -80,6 +82,7 @@
 		025C36101EBA556B00E1C61B /* article_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = article_test.json; sourceTree = "<group>"; };
 		025C36131EBA581600E1C61B /* articles.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = articles.json; path = Resource/articles.json; sourceTree = "<group>"; };
 		025C36151EBB08F700E1C61B /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		025C36171EBBAD4A00E1C61B /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		02D810091EB9F2510038E027 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		0712A545AEF189AFACD9499D /* Pods_MyProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AEB2428738A2C9D5851CD6D /* Pods-MyProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProjectTests/Pods-MyProjectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -94,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025C36191EBBAD7B00E1C61B /* Kingfisher.framework in Frameworks */,
 				025C36021EBA384200E1C61B /* SwiftyJSON.framework in Frameworks */,
 				64807F2E8A3AB7ABEF2BBE8A /* Pods_MyProject.framework in Frameworks */,
 			);
@@ -103,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025C36181EBBAD4A00E1C61B /* Kingfisher.framework in Frameworks */,
 				025C36091EBA494F00E1C61B /* Quick.framework in Frameworks */,
 				025C360A1EBA494F00E1C61B /* Nimble.framework in Frameworks */,
 				025C36061EBA48D400E1C61B /* SwiftyJSON.framework in Frameworks */,
@@ -176,6 +181,7 @@
 		824FAEAD8D77BC0C42E32DCA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				025C36171EBBAD4A00E1C61B /* Kingfisher.framework */,
 				025C36071EBA494F00E1C61B /* Quick.framework */,
 				025C36081EBA494F00E1C61B /* Nimble.framework */,
 				025C36011EBA384200E1C61B /* SwiftyJSON.framework */,
@@ -315,6 +321,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftyJSON.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Kingfisher.framework",
 			);
 			name = "Run Script Carthage";
 			outputPaths = (

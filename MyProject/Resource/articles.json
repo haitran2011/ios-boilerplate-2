@@ -1,7 +1,9 @@
 {
     "articles": [
         {
-            "title": "機械学習の体験と学習を民主化・大衆化したいPaperspaceがY Combinatorらに支えられてGPU VMを導入"
+            "title": "機械学習の体験と学習を民主化・大衆化したいPaperspaceがY Combinatorらに支えられてGPU VMを導入",
+            "url": "http://jp.techcrunch.com/2017/05/04/20170503paperspace-launches-gpu-powered-virtual-machines-loaded-with-tools-for-data-scientists/",
+            "image_url": "https://techcrunchjp.files.wordpress.com/2017/05/gpu.jpg",
         },
         {
             "title": "記事タイトル2"

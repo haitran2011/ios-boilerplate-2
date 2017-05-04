@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol ViewControllerInput {
 }
@@ -91,6 +92,7 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         // Do tasks here (e.g. downloading image, calculate, update some data)
+        // ImagePrefetcher(urls: urls).start()
     }
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
@@ -101,6 +103,10 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        // cell.imageView.kf.cancelDownloadTask()
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

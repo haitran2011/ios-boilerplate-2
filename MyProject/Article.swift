@@ -11,4 +11,5 @@ import Foundation
 struct Article: ListItem {
     
     let title: String?
+    let imageURL: URL?
 }

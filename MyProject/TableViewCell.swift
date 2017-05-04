@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class TableViewCell: UITableViewCell {
     
     @IBOutlet weak private var titleLabel: Label!
+    @IBOutlet weak private var thumbnailView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,5 +32,15 @@ final class TableViewCell: UITableViewCell {
     
     func configure(with item: ListItem) {
         titleLabel.text = item.title
+        
+        let imageSize = CGSize(width: 80, height: 80)
+        let resizeProcessor = ResizingImageProcessor(
+            referenceSize: imageSize, mode: .aspectFill)
+        let cropProcessor = CroppingImageProcessor(
+            size: imageSize, anchor: CGPoint(x: 0.5, y: 0.5))
+        let processor = resizeProcessor >> cropProcessor
+        
+        thumbnailView.kf.setImage(
+            with: item.imageURL, options: [.processor(processor)])
     }
 }
