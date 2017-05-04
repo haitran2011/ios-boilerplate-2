@@ -42,7 +42,7 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
         
         tableView.prefetchDataSource = self
         
-        tableView.estimatedRowHeight = 44.0
+        tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
         output?.fetchItems()

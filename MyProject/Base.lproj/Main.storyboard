@@ -42,28 +42,50 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="zd4-Lw-8wO" customClass="TableViewCell" customModule="MyProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="96" id="zd4-Lw-8wO" customClass="TableViewCell" customModule="MyProject" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="96"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zd4-Lw-8wO" id="V75-Ot-ZPs">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="95.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07S-KI-pel" customClass="Label" customModule="MyProject" customModuleProvider="target">
-                                                    <rect key="frame" x="8" y="8" width="359" height="27.5"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dxL-9V-8bz">
+                                                    <rect key="frame" x="8" y="8" width="359" height="79.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uU5-Ky-chJ">
+                                                            <rect key="frame" x="0.0" y="0.0" width="80" height="79.5"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="80" id="Wtl-3I-z4t"/>
+                                                                <constraint firstAttribute="height" priority="750" constant="80" id="miI-nn-bP9"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07S-KI-pel" customClass="Label" customModule="MyProject" customModuleProvider="target">
+                                                            <rect key="frame" x="90" y="0.0" width="269" height="23"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="uU5-Ky-chJ" firstAttribute="top" secondItem="dxL-9V-8bz" secondAttribute="top" id="9OF-eD-kcF"/>
+                                                        <constraint firstItem="07S-KI-pel" firstAttribute="top" secondItem="dxL-9V-8bz" secondAttribute="top" id="Aip-OS-WD4"/>
+                                                        <constraint firstItem="uU5-Ky-chJ" firstAttribute="leading" secondItem="dxL-9V-8bz" secondAttribute="leading" id="DKD-Me-Vh2"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="07S-KI-pel" secondAttribute="bottom" id="a2u-yW-uwV"/>
+                                                        <constraint firstAttribute="trailing" secondItem="07S-KI-pel" secondAttribute="trailing" id="dGo-AQ-rAz"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uU5-Ky-chJ" secondAttribute="bottom" id="dy1-hf-ocl"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="07S-KI-pel" secondAttribute="trailing" id="7Wo-52-Hsv"/>
-                                                <constraint firstItem="07S-KI-pel" firstAttribute="top" secondItem="V75-Ot-ZPs" secondAttribute="topMargin" id="9be-gO-zeL"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="07S-KI-pel" secondAttribute="bottom" id="GR9-pa-fLZ"/>
-                                                <constraint firstItem="07S-KI-pel" firstAttribute="leading" secondItem="V75-Ot-ZPs" secondAttribute="leadingMargin" id="j1N-s2-v88"/>
+                                                <constraint firstItem="dxL-9V-8bz" firstAttribute="leading" secondItem="V75-Ot-ZPs" secondAttribute="leadingMargin" id="04E-wH-pDI"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="dxL-9V-8bz" secondAttribute="trailing" id="2kk-X9-9g8"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="dxL-9V-8bz" secondAttribute="bottom" id="736-GS-xv4"/>
+                                                <constraint firstItem="dxL-9V-8bz" firstAttribute="top" secondItem="V75-Ot-ZPs" secondAttribute="topMargin" id="830-Jp-J1l"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="titleLabel" destination="07S-KI-pel" id="qkj-oV-awS"/>
                                         </connections>
