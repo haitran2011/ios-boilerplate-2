@@ -16,7 +16,7 @@ protocol ViewControllerOutput {
     func fetchItems()
 }
 
-final class ViewController: UIViewController, ListPresenterOutput,
+final class ViewController: UIViewController, ViewControllerInput, ListPresenterOutput,
     UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate {
     
     // MARK: - Outlet

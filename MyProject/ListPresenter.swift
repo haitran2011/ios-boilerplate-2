@@ -16,7 +16,7 @@ protocol ListPresenterOutput: class {
     func displayFetchedItems()
 }
 
-class ListPresenter: ViewControllerOutput {
+class ListPresenter: ListPresenterInput, ViewControllerOutput {
     
     private weak var output: ListPresenterOutput?
     private var _items: [ListItem]?
