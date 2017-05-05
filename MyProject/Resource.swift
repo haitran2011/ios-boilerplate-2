@@ -23,7 +23,8 @@ struct Resource {
             let data = try Data(contentsOf: fileURL)
             json = JSON(data: data)
         } catch {
-            debugPrint(error.localizedDescription)
+            let message: String = error.localizedDescription
+            debugPrint(message)
         }
         
         return json
