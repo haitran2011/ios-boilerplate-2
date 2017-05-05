@@ -92,7 +92,21 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         // Do tasks here (e.g. downloading image, calculate, update some data)
-        // ImagePrefetcher(urls: urls).start()
+        guard let items = output?.items else {
+            return
+        }
+        
+        let urls: [URL] = indexPaths.flatMap { indexPath -> URL? in
+            
+            if indexPath.row < items.count {
+                let item: ListItem = items[indexPath.row]
+                return item.imageURL
+            }
+            
+            return nil
+        }
+        
+        ImagePrefetcher(urls: urls).start()
     }
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
@@ -106,7 +120,9 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        // cell.imageView.kf.cancelDownloadTask()
+        if let customCell = cell as? TableViewCell {
+            customCell.cancelTask()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -14,10 +14,27 @@ final class TableViewCell: UITableViewCell {
     @IBOutlet weak private var titleLabel: Label!
     @IBOutlet weak private var thumbnailView: UIImageView!
     
+    private static let ThumbnailSize = CGSize(width: 80, height: 80)
+    
+    lazy private var imageOptions: KingfisherOptionsInfo = {
+        var options: KingfisherOptionsInfo = []
+        
+        let resizing = ResizingImageProcessor(
+            referenceSize: ThumbnailSize, mode: .aspectFill)
+        let cropping = CroppingImageProcessor(
+            size: ThumbnailSize, anchor: CGPoint(x: 0.5, y: 0.5))
+        let imageProcessor: ImageProcessor = resizing >> cropping
+        
+        options.append(.processor(imageProcessor))
+        
+        return options
+    }()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         titleLabel.setupPropertyForNonAlphaNumeric()
+        thumbnailView.kf.indicatorType = .activity
     }
     
     override func prepareForReuse() {
@@ -33,14 +50,11 @@ final class TableViewCell: UITableViewCell {
     func configure(with item: ListItem) {
         titleLabel.text = item.title
         
-        let imageSize = CGSize(width: 80, height: 80)
-        let resizeProcessor = ResizingImageProcessor(
-            referenceSize: imageSize, mode: .aspectFill)
-        let cropProcessor = CroppingImageProcessor(
-            size: imageSize, anchor: CGPoint(x: 0.5, y: 0.5))
-        let processor = resizeProcessor >> cropProcessor
-        
         thumbnailView.kf.setImage(
-            with: item.imageURL, options: [.processor(processor)])
+            with: item.imageURL, options: imageOptions)
+    }
+    
+    func cancelTask() {
+        thumbnailView.kf.cancelDownloadTask()
     }
 }
