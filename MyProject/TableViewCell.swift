@@ -12,6 +12,7 @@ import Kingfisher
 final class TableViewCell: UITableViewCell {
     
     @IBOutlet weak private var headlineLabel: Label!
+    @IBOutlet weak private var footnoteLabel: Label!
     @IBOutlet weak private var thumbnailView: UIImageView!
     
     private static let ThumbnailSize = CGSize(width: 80, height: 80)

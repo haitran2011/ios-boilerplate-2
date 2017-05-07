@@ -52,30 +52,43 @@
                                                 <stackView contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="dxL-9V-8bz">
                                                     <rect key="frame" x="8" y="8" width="359" height="79.5"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07S-KI-pel" customClass="Label" customModule="MyProject" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="20.5"/>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3f-1d-MWm">
+                                                            <rect key="frame" x="0.0" y="0.0" width="269" height="79.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Headline" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="07S-KI-pel" customClass="Label" customModule="MyProject" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="269" height="20.5"/>
+                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Footnote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CUY-uC-jfG" customClass="Label" customModule="MyProject" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="63" width="269" height="16"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="CUY-uC-jfG" secondAttribute="trailing" id="3v1-B1-c5Q"/>
+                                                                <constraint firstItem="CUY-uC-jfG" firstAttribute="leading" secondItem="J3f-1d-MWm" secondAttribute="leading" id="HMR-QY-MLb"/>
+                                                                <constraint firstItem="07S-KI-pel" firstAttribute="top" secondItem="J3f-1d-MWm" secondAttribute="top" id="Ji4-oU-FK7"/>
+                                                                <constraint firstItem="CUY-uC-jfG" firstAttribute="top" relation="greaterThanOrEqual" secondItem="07S-KI-pel" secondAttribute="bottom" constant="8" id="Te9-14-nnu"/>
+                                                                <constraint firstAttribute="bottom" secondItem="CUY-uC-jfG" secondAttribute="bottom" id="jhv-fA-6te"/>
+                                                                <constraint firstAttribute="trailing" secondItem="07S-KI-pel" secondAttribute="trailing" id="oSY-Cn-QT9"/>
+                                                                <constraint firstItem="07S-KI-pel" firstAttribute="leading" secondItem="J3f-1d-MWm" secondAttribute="leading" id="p9v-o3-8Sc"/>
+                                                            </constraints>
+                                                        </view>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uU5-Ky-chJ">
                                                             <rect key="frame" x="279" y="0.0" width="80" height="79.5"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="Wtl-3I-z4t"/>
-                                                                <constraint firstAttribute="height" priority="999" constant="80" id="miI-nn-bP9"/>
+                                                                <constraint firstAttribute="height" constant="80" id="miI-nn-bP9"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstItem="uU5-Ky-chJ" firstAttribute="top" secondItem="dxL-9V-8bz" secondAttribute="top" id="9OF-eD-kcF"/>
-                                                        <constraint firstItem="07S-KI-pel" firstAttribute="top" secondItem="dxL-9V-8bz" secondAttribute="top" id="Agq-b8-BO7"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="07S-KI-pel" secondAttribute="bottom" id="Ku3-zc-tVS"/>
-                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uU5-Ky-chJ" secondAttribute="bottom" id="dy1-hf-ocl"/>
-                                                        <constraint firstAttribute="trailing" secondItem="uU5-Ky-chJ" secondAttribute="trailing" id="f6r-rd-EYv"/>
-                                                        <constraint firstItem="07S-KI-pel" firstAttribute="leading" secondItem="dxL-9V-8bz" secondAttribute="leading" id="zye-L4-UZj"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
@@ -87,6 +100,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="footnoteLabel" destination="CUY-uC-jfG" id="6Bc-ij-iQW"/>
                                             <outlet property="headlineLabel" destination="07S-KI-pel" id="8Yd-Xl-ZCg"/>
                                             <outlet property="thumbnailView" destination="uU5-Ky-chJ" id="Ego-As-6cV"/>
                                         </connections>
