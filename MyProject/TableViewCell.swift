@@ -11,7 +11,7 @@ import Kingfisher
 
 final class TableViewCell: UITableViewCell {
     
-    @IBOutlet weak private var titleLabel: Label!
+    @IBOutlet weak private var headlineLabel: Label!
     @IBOutlet weak private var thumbnailView: UIImageView!
     
     private static let ThumbnailSize = CGSize(width: 80, height: 80)
@@ -33,7 +33,7 @@ final class TableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        titleLabel.setupPropertyForNonAlphaNumeric()
+        headlineLabel.setupPropertyForNonAlphaNumeric()
         thumbnailView.kf.indicatorType = .activity
     }
     
@@ -48,7 +48,7 @@ final class TableViewCell: UITableViewCell {
     }
     
     func configure(with item: ListItem) {
-        titleLabel.text = item.title
+        headlineLabel.text = item.title
         
         thumbnailView.kf.setImage(
             with: item.imageURL, options: imageOptions)

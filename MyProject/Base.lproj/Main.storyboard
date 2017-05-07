@@ -87,8 +87,8 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
+                                            <outlet property="headlineLabel" destination="07S-KI-pel" id="8Yd-Xl-ZCg"/>
                                             <outlet property="thumbnailView" destination="uU5-Ky-chJ" id="Ego-As-6cV"/>
-                                            <outlet property="titleLabel" destination="07S-KI-pel" id="qkj-oV-awS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
