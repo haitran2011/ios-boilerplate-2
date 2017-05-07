@@ -90,6 +90,11 @@
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="J3f-1d-MWm" firstAttribute="top" secondItem="dxL-9V-8bz" secondAttribute="top" id="cyo-Vp-P3w"/>
+                                                        <constraint firstAttribute="bottom" secondItem="J3f-1d-MWm" secondAttribute="bottom" id="h0A-GU-hc7"/>
+                                                        <constraint firstItem="uU5-Ky-chJ" firstAttribute="top" secondItem="dxL-9V-8bz" secondAttribute="top" id="oKg-6s-6Xx"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
