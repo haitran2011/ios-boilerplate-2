@@ -86,7 +86,7 @@
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="80" id="Wtl-3I-z4t"/>
-                                                                <constraint firstAttribute="height" constant="80" id="miI-nn-bP9"/>
+                                                                <constraint firstAttribute="height" priority="999" constant="80" id="miI-nn-bP9"/>
                                                             </constraints>
                                                         </imageView>
                                                     </subviews>
@@ -94,6 +94,7 @@
                                                         <constraint firstItem="J3f-1d-MWm" firstAttribute="top" secondItem="dxL-9V-8bz" secondAttribute="top" id="cyo-Vp-P3w"/>
                                                         <constraint firstAttribute="bottom" secondItem="J3f-1d-MWm" secondAttribute="bottom" id="h0A-GU-hc7"/>
                                                         <constraint firstItem="uU5-Ky-chJ" firstAttribute="top" secondItem="dxL-9V-8bz" secondAttribute="top" id="oKg-6s-6Xx"/>
+                                                        <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="uU5-Ky-chJ" secondAttribute="bottom" id="uBg-98-3m3"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
