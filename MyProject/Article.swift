@@ -10,6 +10,13 @@ import Foundation
 
 struct Article: ListItem {
     
-    let title: String?
+    let headline: String?
+    let footnote: String?
     let imageURL: URL?
+    
+    init(title: String?, author: String?, imageURL: URL?) {
+        headline = title
+        footnote = author
+        self.imageURL = imageURL
+    }
 }

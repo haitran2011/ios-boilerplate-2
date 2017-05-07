@@ -10,6 +10,7 @@ import Foundation
 
 protocol ListItem {
     
-    var title: String? { get }
+    var headline: String? { get }
+    var footnote: String? { get }
     var imageURL: URL? { get }
 }

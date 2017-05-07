@@ -41,13 +41,19 @@ class ListPresenter: ListPresenterInput, ViewControllerOutput {
                 
                 for jsonObj: JSON in jsonArray {
                     let title: String? = jsonObj["title"].string
+                    let author: String? = jsonObj["author"].string
+                    
                     var imageURL: URL?
                     
                     if let urlString = jsonObj["image_url"].string {
                         imageURL = URL(string: urlString)
                     }
                     
-                    let article = Article(title: title, imageURL: imageURL)
+                    let article = Article(
+                        title: title,
+                        author: author,
+                        imageURL: imageURL)
+                    
                     articles.append(article)
                 }
             }

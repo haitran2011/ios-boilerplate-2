@@ -35,6 +35,7 @@ final class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         headlineLabel.setupPropertyForNonAlphaNumeric()
+        footnoteLabel.setupPropertyForNonAlphaNumeric()
         thumbnailView.kf.indicatorType = .activity
     }
     
@@ -49,7 +50,8 @@ final class TableViewCell: UITableViewCell {
     }
     
     func configure(with item: ListItem) {
-        headlineLabel.text = item.title
+        headlineLabel.text = item.headline
+        footnoteLabel.text = item.footnote
         
         thumbnailView.kf.setImage(
             with: item.imageURL, options: imageOptions)
