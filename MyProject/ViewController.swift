@@ -7,15 +7,34 @@
 //
 
 import UIKit
+import Kingfisher
 
-final class ViewController: UIViewController, UITableViewDataSource,
-    UITableViewDataSourcePrefetching, UITableViewDelegate {
+protocol ViewControllerInput {
+}
+
+protocol ViewControllerOutput {
+    var items: [ListItem]? { get }
+    func fetchItems()
+}
+
+final class ViewController: UIViewController, ViewControllerInput, ListPresenterOutput,
+    UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate {
     
     // MARK: - Outlet
     
     @IBOutlet weak private var tableView: UITableView!
     
+    // MARK: - Property
+    
+    private var output: ViewControllerOutput?
+    
     // MARK: - Lifecycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        output = ListPresenter(output: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,12 +43,20 @@ final class ViewController: UIViewController, UITableViewDataSource,
         
         tableView.prefetchDataSource = self
         
-        tableView.estimatedRowHeight = 44.0
+        tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
+        
+        output?.fetchItems()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: - ListPresenterOutput
+    
+    func displayFetchedItems() {
+        tableView.reloadData()
     }
     
     // MARK: - UITableViewDataSource
@@ -39,15 +66,23 @@ final class ViewController: UIViewController, UITableViewDataSource,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return output?.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView
+        let cell: UITableViewCell = tableView
             .dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
+        guard let items = output?.items else {
+            return cell
+        }
+        
         if let customCell = cell as? TableViewCell {
-            customCell.configure()
+            
+            if indexPath.row < items.count {
+                let item: ListItem = items[indexPath.row]
+                customCell.configure(with: item)
+            }
         }
         
         return cell
@@ -57,6 +92,21 @@ final class ViewController: UIViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         // Do tasks here (e.g. downloading image, calculate, update some data)
+        guard let items = output?.items else {
+            return
+        }
+        
+        let urls: [URL] = indexPaths.flatMap { indexPath -> URL? in
+            
+            if indexPath.row < items.count {
+                let item: ListItem = items[indexPath.row]
+                return item.imageURL
+            }
+            
+            return nil
+        }
+        
+        ImagePrefetcher(urls: urls).start()
     }
     
     func tableView(_ tableView: UITableView, cancelPrefetchingForRowsAt indexPaths: [IndexPath]) {
@@ -67,6 +117,12 @@ final class ViewController: UIViewController, UITableViewDataSource,
     // MARK: - UITableViewDelegate
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    }
+    
+    func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let customCell = cell as? TableViewCell {
+            customCell.cancelTask()
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -7,22 +7,57 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class TableViewCell: UITableViewCell {
     
-    @IBOutlet weak private var titleLabel: Label!
+    @IBOutlet weak private var headlineLabel: Label!
+    @IBOutlet weak private var footnoteLabel: Label!
+    @IBOutlet weak private var thumbnailView: UIImageView!
+    
+    private static let ThumbnailSize = CGSize(width: 80, height: 80)
+    
+    lazy private var imageOptions: KingfisherOptionsInfo = {
+        var options: KingfisherOptionsInfo = []
+        
+        let resizing = ResizingImageProcessor(
+            referenceSize: ThumbnailSize, mode: .aspectFill)
+        let cropping = CroppingImageProcessor(
+            size: ThumbnailSize, anchor: CGPoint(x: 0.5, y: 0.5))
+        let imageProcessor: ImageProcessor = resizing >> cropping
+        
+        options.append(.processor(imageProcessor))
+        
+        return options
+    }()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        titleLabel.setupPropertyForNonAlphaNumeric()
+        headlineLabel.setupPropertyForNonAlphaNumeric()
+        footnoteLabel.setupPropertyForNonAlphaNumeric()
+        thumbnailView.kf.indicatorType = .activity
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        // Clear cached images
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
     
-    func configure() {
-        titleLabel.text = "セル"
+    func configure(with item: ListItem) {
+        headlineLabel.text = item.headline
+        footnoteLabel.text = item.footnote
+        
+        thumbnailView.kf.setImage(
+            with: item.imageURL, options: imageOptions)
+    }
+    
+    func cancelTask() {
+        thumbnailView.kf.cancelDownloadTask()
     }
 }
