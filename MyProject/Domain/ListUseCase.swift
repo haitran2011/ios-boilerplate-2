@@ -8,11 +8,23 @@
 
 import Foundation
 
-protocol ListUseCaseInput {
+protocol ListUseCase {
+    
+    func fetchArticles() -> [Article]
 }
 
-protocol ListUseCaseOutput {
-}
-
-struct ListUseCase {
+struct ListUseCaseImpl: ListUseCase {
+    
+    let listRepository: ListRepository
+    
+    func fetchArticles() -> [Article] {
+        let entities: [ArticleEntity] = listRepository.fetchArticleEntities()
+        let translator = ArticleTranslator()
+        
+        let articles = entities.flatMap { entity -> Article? in
+            return translator.translate(entity)
+        }
+        
+        return articles
+    }
 }
