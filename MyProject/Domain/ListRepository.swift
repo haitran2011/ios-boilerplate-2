@@ -8,8 +8,16 @@
 
 import Foundation
 
-protocol ListRepositoryInput {
+protocol ListRepository {
+    
+    func fetchArticleEntities() -> [ArticleEntity]
 }
 
-struct ListRepository: ListRepositoryInput {
+struct ListRepositoryImpl: ListRepository {
+    
+    let dataStore: DataStore
+    
+    func fetchArticleEntities() -> [ArticleEntity] {
+        return dataStore.fetchArticleEntities()
+    }
 }
