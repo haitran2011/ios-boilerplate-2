@@ -26,8 +26,8 @@ struct DataStoreImpl: DataStore {
             if let jsonArray = json["articles"].array {
                 
                 for jsonObj: JSON in jsonArray {
-                    let title    : String? = jsonObj["title"].string
-                    let author   : String? = jsonObj["author"].string
+                    let title: String? = jsonObj["title"].string
+                    let author: String? = jsonObj["author"].string
                     let urlString: String? = jsonObj["image_url"].string
                     
                     let entity = ArticleEntity(
