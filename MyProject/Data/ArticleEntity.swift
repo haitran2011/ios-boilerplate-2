@@ -12,7 +12,7 @@ import Foundation
 /// Value Objectでプロパティの操作はされない
 struct ArticleEntity {
     
-    let headline: String?
-    let footnote: String?
+    let title   : String?
+    let author  : String?
     let imageUrlString: String?
 }
