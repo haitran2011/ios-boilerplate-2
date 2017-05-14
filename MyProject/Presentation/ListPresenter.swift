@@ -9,58 +9,29 @@
 import Foundation
 import SwiftyJSON
 
-protocol ListPresenterInput {
+protocol ListPresenter: class {
+    var items: [ListItem]? { get }
+    func fetchArticles()
 }
 
-protocol ListPresenterOutput: class {
+final class TopListPresenterImpl: ListPresenter {
     
-    func displayFetchedItems()
-}
-
-class ListPresenter: ListPresenterInput, ViewControllerOutput {
+    weak var viewInput: ViewControllerInput?
     
-    private weak var output: ListPresenterOutput?
-    private var _items: [ListItem]?
+    private(set)var items: [ListItem]?
+    let listUseCase: ListUseCase
     
-    init(output: ListPresenterOutput?) {
-        self.output = output
+    // MARK: - Initialization
+    
+    init(viewInput: ViewControllerInput, useCase: ListUseCase) {
+        self.viewInput = viewInput
+        self.listUseCase = useCase
     }
     
-    // MARK: - ViewControllerOutput
+    // MARK: - ListPresenter
     
-    var items: [ListItem]? {
-        return _items
-    }
-    
-    func fetchItems() {
-        var articles: [Article] = []
-        
-        if let json = Resource.jsonFrom(fileName: "articles") {
-            
-            if let jsonArray = json["articles"].array {
-                
-                for jsonObj: JSON in jsonArray {
-                    let title: String? = jsonObj["title"].string
-                    let author: String? = jsonObj["author"].string
-                    
-                    var imageURL: URL?
-                    
-                    if let urlString = jsonObj["image_url"].string {
-                        imageURL = URL(string: urlString)
-                    }
-                    
-                    let article = Article(
-                        title: title,
-                        author: author,
-                        imageURL: imageURL)
-                    
-                    articles.append(article)
-                }
-            }
-        }
-        
-        _items = articles
-        
-        output?.displayFetchedItems()
+    func fetchArticles() {
+        items = listUseCase.fetchArticles()
+        viewInput?.displayFetchedItems()
     }
 }

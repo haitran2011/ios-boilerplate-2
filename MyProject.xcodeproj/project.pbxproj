@@ -154,8 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				020D93831EC890A9005C6882 /* ListPresenter.swift */,
-				020D93801EC890A9005C6882 /* TableViewCell.swift */,
 				020D93811EC890A9005C6882 /* ViewController.swift */,
+				020D93801EC890A9005C6882 /* TableViewCell.swift */,
 				020D93821EC890A9005C6882 /* Label.swift */,
 				020D93841EC890A9005C6882 /* NonAlphaNumericLabel.swift */,
 			);
