@@ -10,6 +10,7 @@
 		020D936C1EC81D75005C6882 /* ListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D936B1EC81D75005C6882 /* ListRepository.swift */; };
 		020D936E1EC81E7A005C6882 /* ListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D936D1EC81E7A005C6882 /* ListUseCase.swift */; };
 		020D93721EC82686005C6882 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D93711EC82686005C6882 /* DataStore.swift */; };
+		020D93741EC82EDF005C6882 /* ArticleEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020D93731EC82EDF005C6882 /* ArticleEntity.swift */; };
 		025414BB1EACCA2F00022D84 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025414BA1EACCA2F00022D84 /* AppDelegate.swift */; };
 		025414BD1EACCA2F00022D84 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 025414BC1EACCA2F00022D84 /* ViewController.swift */; };
 		025414C01EACCA2F00022D84 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 025414BE1EACCA2F00022D84 /* Main.storyboard */; };
@@ -66,6 +67,7 @@
 		020D936B1EC81D75005C6882 /* ListRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListRepository.swift; path = Domain/ListRepository.swift; sourceTree = "<group>"; };
 		020D936D1EC81E7A005C6882 /* ListUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListUseCase.swift; path = Domain/ListUseCase.swift; sourceTree = "<group>"; };
 		020D93711EC82686005C6882 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataStore.swift; path = Data/DataStore.swift; sourceTree = "<group>"; };
+		020D93731EC82EDF005C6882 /* ArticleEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArticleEntity.swift; path = Data/ArticleEntity.swift; sourceTree = "<group>"; };
 		025414B71EACCA2F00022D84 /* MyProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		025414BA1EACCA2F00022D84 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		025414BC1EACCA2F00022D84 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				020D93711EC82686005C6882 /* DataStore.swift */,
+				020D93731EC82EDF005C6882 /* ArticleEntity.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				020D936E1EC81E7A005C6882 /* ListUseCase.swift in Sources */,
 				025C36051EBA3DF200E1C61B /* Resource.swift in Sources */,
 				025C35FE1EBA2C6900E1C61B /* ListItem.swift in Sources */,
+				020D93741EC82EDF005C6882 /* ArticleEntity.swift in Sources */,
 				025C35FA1EBA1E8C00E1C61B /* NonAlphaNumericLabel.swift in Sources */,
 				025414BD1EACCA2F00022D84 /* ViewController.swift in Sources */,
 				025C35FC1EBA201400E1C61B /* Label.swift in Sources */,
