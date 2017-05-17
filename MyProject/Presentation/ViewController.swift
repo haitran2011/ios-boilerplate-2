@@ -9,15 +9,12 @@
 import UIKit
 import Kingfisher
 
-protocol ViewControllerInput {
+protocol ViewControllerInput: class {
+    
+    func displayFetchedItems()
 }
 
-protocol ViewControllerOutput {
-    var items: [ListItem]? { get }
-    func fetchItems()
-}
-
-final class ViewController: UIViewController, ViewControllerInput, ListPresenterOutput,
+final class ViewController: UIViewController, ViewControllerInput,
     UITableViewDataSource, UITableViewDataSourcePrefetching, UITableViewDelegate {
     
     // MARK: - Outlet
@@ -26,14 +23,16 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
     
     // MARK: - Property
     
-    private var output: ViewControllerOutput?
+    private var presenter: ListPresenter?
     
     // MARK: - Lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        output = ListPresenter(output: self)
+        let repository = ListRepositoryImpl(dataStore: DataStoreImpl())
+        let useCase = ListUseCaseImpl(listRepository: repository)
+        presenter = TopListPresenterImpl(viewInput: self, useCase: useCase)
     }
     
     override func viewDidLoad() {
@@ -46,7 +45,7 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
         tableView.estimatedRowHeight = 100.0
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        output?.fetchItems()
+        presenter?.fetchArticles()
     }
     
     override func didReceiveMemoryWarning() {
@@ -66,14 +65,14 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return output?.items?.count ?? 0
+        return presenter?.items?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell = tableView
             .dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         
-        guard let items = output?.items else {
+        guard let items = presenter?.items else {
             return cell
         }
         
@@ -92,7 +91,7 @@ final class ViewController: UIViewController, ViewControllerInput, ListPresenter
     
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         // Do tasks here (e.g. downloading image, calculate, update some data)
-        guard let items = output?.items else {
+        guard let items = presenter?.items else {
             return
         }
         
