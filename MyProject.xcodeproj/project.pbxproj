@@ -37,6 +37,7 @@
 		025C36191EBBAD7B00E1C61B /* Kingfisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 025C36171EBBAD4A00E1C61B /* Kingfisher.framework */; };
 		02C3ACBD1ECC9ACA0076EEB6 /* ListBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3ACBC1ECC9ACA0076EEB6 /* ListBuilder.swift */; };
 		02C3ACBF1ECCA3F70076EEB6 /* ListWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3ACBE1ECCA3F70076EEB6 /* ListWireframe.swift */; };
+		02C3ACC11ECCACCD0076EEB6 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3ACC01ECCACCD0076EEB6 /* DetailViewController.swift */; };
 		02D8100A1EB9F2510038E027 /* NSObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02D810091EB9F2510038E027 /* NSObjectExtension.swift */; };
 		04ADEB35B2460D3F177557C2 /* Pods_MyProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0712A545AEF189AFACD9499D /* Pods_MyProjectTests.framework */; };
 		64807F2E8A3AB7ABEF2BBE8A /* Pods_MyProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BA9A7CA44A337F4AA4B23A4F /* Pods_MyProject.framework */; };
@@ -97,6 +98,7 @@
 		025C36171EBBAD4A00E1C61B /* Kingfisher.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Kingfisher.framework; path = Carthage/Build/iOS/Kingfisher.framework; sourceTree = "<group>"; };
 		02C3ACBC1ECC9ACA0076EEB6 /* ListBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListBuilder.swift; path = Presentation/ListBuilder.swift; sourceTree = "<group>"; };
 		02C3ACBE1ECCA3F70076EEB6 /* ListWireframe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListWireframe.swift; path = Presentation/ListWireframe.swift; sourceTree = "<group>"; };
+		02C3ACC01ECCACCD0076EEB6 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DetailViewController.swift; path = Presentation/DetailViewController.swift; sourceTree = "<group>"; };
 		02D810091EB9F2510038E027 /* NSObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtension.swift; sourceTree = "<group>"; };
 		0712A545AEF189AFACD9499D /* Pods_MyProjectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyProjectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AEB2428738A2C9D5851CD6D /* Pods-MyProjectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyProjectTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyProjectTests/Pods-MyProjectTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				020D93801EC890A9005C6882 /* TableViewCell.swift */,
 				020D93821EC890A9005C6882 /* Label.swift */,
 				020D93841EC890A9005C6882 /* NonAlphaNumericLabel.swift */,
+				02C3ACC01ECCACCD0076EEB6 /* DetailViewController.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -503,6 +506,7 @@
 				020D93741EC82EDF005C6882 /* ArticleEntity.swift in Sources */,
 				020D93881EC890A9005C6882 /* ListPresenter.swift in Sources */,
 				020D93861EC890A9005C6882 /* ViewController.swift in Sources */,
+				02C3ACC11ECCACCD0076EEB6 /* DetailViewController.swift in Sources */,
 				020D936C1EC81D75005C6882 /* ListRepository.swift in Sources */,
 				020D93761EC85DA3005C6882 /* ArticleTranslator.swift in Sources */,
 				020D937A1EC88FE0005C6882 /* ListItem.swift in Sources */,
