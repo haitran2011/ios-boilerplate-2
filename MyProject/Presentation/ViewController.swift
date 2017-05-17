@@ -125,5 +125,6 @@ final class ViewController: UIViewController, ViewControllerInput,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.selectCellAt(indexPath: indexPath)
     }
 }

@@ -23,7 +23,11 @@ struct ListBuilder {
         
         let repository = ListRepositoryImpl(dataStore: DataStoreImpl())
         let useCase = ListUseCaseImpl(listRepository: repository)
-        let presenter = TopListPresenterImpl(viewInput: vc, useCase: useCase)
+        let wireframe = TopListWireframeImpl()
+        wireframe.viewController = vc
+        
+        let presenter = TopListPresenterImpl(
+            viewInput: vc, useCase: useCase, wireframe: wireframe)
         vc.inject(presenter: presenter)
         
         return vc
