@@ -52,7 +52,7 @@ final class ViewController: UIViewController, ViewControllerInput,
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - ListPresenterOutput
+    // MARK: - ViewControllerInput
     
     func displayFetchedItems() {
         tableView.reloadData()
