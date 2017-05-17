@@ -21,6 +21,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             debugPrint("Used disk size: \(kilobytes)KB")
         }
         
+        let vc = ListBuilder().build()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UINavigationController(rootViewController: vc)
+        window?.makeKeyAndVisible()
+        
         return true
     }
     

@@ -27,12 +27,12 @@ final class ViewController: UIViewController, ViewControllerInput,
     
     // MARK: - Lifecycle
     
+    func inject(presenter: ListPresenter) {
+        self.presenter = presenter
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        let repository = ListRepositoryImpl(dataStore: DataStoreImpl())
-        let useCase = ListUseCaseImpl(listRepository: repository)
-        presenter = TopListPresenterImpl(viewInput: self, useCase: useCase)
     }
     
     override func viewDidLoad() {
