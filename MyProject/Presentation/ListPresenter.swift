@@ -12,6 +12,7 @@ import SwiftyJSON
 protocol ListPresenter: class {
     var items: [ListItem]? { get }
     func fetchArticles()
+    func selectCellAt(indexPath: IndexPath)
 }
 
 final class TopListPresenterImpl: ListPresenter {
@@ -20,12 +21,14 @@ final class TopListPresenterImpl: ListPresenter {
     
     private(set)var items: [ListItem]?
     let listUseCase: ListUseCase
+    let wireframe: ListWireframe
     
     // MARK: - Initialization
     
-    init(viewInput: ViewControllerInput, useCase: ListUseCase) {
+    init(viewInput: ViewControllerInput, useCase: ListUseCase, wireframe: ListWireframe) {
         self.viewInput = viewInput
         self.listUseCase = useCase
+        self.wireframe = wireframe
     }
     
     // MARK: - ListPresenter
@@ -33,5 +36,18 @@ final class TopListPresenterImpl: ListPresenter {
     func fetchArticles() {
         items = listUseCase.fetchArticles()
         viewInput?.displayFetchedItems()
+    }
+    
+    func selectCellAt(indexPath: IndexPath) {
+        guard let items = items else {
+            return
+        }
+        
+        guard indexPath.row < items.count else {
+            return
+        }
+        
+        let item = items[indexPath.row]
+        wireframe.showDetail(item: item)
     }
 }

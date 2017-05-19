@@ -27,12 +27,12 @@ final class ViewController: UIViewController, ViewControllerInput,
     
     // MARK: - Lifecycle
     
+    func inject(presenter: ListPresenter) {
+        self.presenter = presenter
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        let repository = ListRepositoryImpl(dataStore: DataStoreImpl())
-        let useCase = ListUseCaseImpl(listRepository: repository)
-        presenter = TopListPresenterImpl(viewInput: self, useCase: useCase)
     }
     
     override func viewDidLoad() {
@@ -52,7 +52,7 @@ final class ViewController: UIViewController, ViewControllerInput,
         super.didReceiveMemoryWarning()
     }
     
-    // MARK: - ListPresenterOutput
+    // MARK: - ViewControllerInput
     
     func displayFetchedItems() {
         tableView.reloadData()
@@ -125,5 +125,6 @@ final class ViewController: UIViewController, ViewControllerInput,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter?.selectCellAt(indexPath: indexPath)
     }
 }
