@@ -18,10 +18,14 @@
 		02EDCF851ECF612C000B705B /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		02EDCF871ECF61A9000B705B /* NewsAppSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDCF861ECF61A9000B705B /* NewsAppSpec.swift */; };
 		02EDCF981ED062AD000B705B /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF8F1ED062AD000B705B /* Domain.framework */; };
-		02EDCF9F1ED062AE000B705B /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDCF9E1ED062AE000B705B /* DomainTests.swift */; };
 		02EDCFA11ED062AE000B705B /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = 02EDCF911ED062AD000B705B /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		02EDCFA41ED062AE000B705B /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF8F1ED062AD000B705B /* Domain.framework */; };
 		02EDCFA51ED062AE000B705B /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF8F1ED062AD000B705B /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02EDCFAD1ED06E82000B705B /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; };
+		02EDCFAE1ED06E86000B705B /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; };
+		02EDCFB01ED06EE4000B705B /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02EDCFB11ED06EEA000B705B /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		02EDCFB31ED06F2E000B705B /* DomainSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02EDCFB21ED06F2E000B705B /* DomainSpec.swift */; };
 		238FE7CA79E116FB8EF0F1C0 /* Pods_NewsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80193C3E8AD4CD55B1B5E8BB /* Pods_NewsAppTests.framework */; };
 		D1ADB36A16436F2B636E3396 /* Pods_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76ABA6D92DE710E20758E9A2 /* Pods_NewsApp.framework */; };
 /* End PBXBuildFile section */
@@ -80,6 +84,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		02EDCFAF1ED06EBC000B705B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				02EDCFB11ED06EEA000B705B /* Nimble.framework in CopyFiles */,
+				02EDCFB01ED06EE4000B705B /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -101,8 +116,8 @@
 		02EDCF911ED062AD000B705B /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		02EDCF921ED062AD000B705B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		02EDCF971ED062AD000B705B /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		02EDCF9E1ED062AE000B705B /* DomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTests.swift; sourceTree = "<group>"; };
 		02EDCFA01ED062AE000B705B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		02EDCFB21ED06F2E000B705B /* DomainSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DomainSpec.swift; sourceTree = "<group>"; };
 		29F8EAADB2167D899C134E54 /* Pods-NewsApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsApp/Pods-NewsApp.debug.xcconfig"; sourceTree = "<group>"; };
 		4582AAEC81689D3A4764DAC3 /* Pods-NewsAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsAppTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NewsAppTests/Pods-NewsAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		57335832C0FB7A56CB5B5ED7 /* Pods-NewsApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NewsApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-NewsApp/Pods-NewsApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,6 +158,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				02EDCF981ED062AD000B705B /* Domain.framework in Frameworks */,
+				02EDCFAD1ED06E82000B705B /* Nimble.framework in Frameworks */,
+				02EDCFAE1ED06E86000B705B /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +224,7 @@
 		02EDCF9D1ED062AD000B705B /* DomainTests */ = {
 			isa = PBXGroup;
 			children = (
-				02EDCF9E1ED062AE000B705B /* DomainTests.swift */,
+				02EDCFB21ED06F2E000B705B /* DomainSpec.swift */,
 				02EDCFA01ED062AE000B705B /* Info.plist */,
 			);
 			path = DomainTests;
@@ -319,6 +336,7 @@
 				02EDCF931ED062AD000B705B /* Sources */,
 				02EDCF941ED062AD000B705B /* Frameworks */,
 				02EDCF951ED062AD000B705B /* Resources */,
+				02EDCFAF1ED06EBC000B705B /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -556,7 +574,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02EDCF9F1ED062AE000B705B /* DomainTests.swift in Sources */,
+				02EDCFB31ED06F2E000B705B /* DomainSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,6 +841,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9Y6KN5AA6R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DomainTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -838,6 +860,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9Y6KN5AA6R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DomainTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -885,6 +911,7 @@
 				02EDCFA71ED062AE000B705B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02EDCFAC1ED062AE000B705B /* Build configuration list for PBXNativeTarget "DomainTests" */ = {
 			isa = XCConfigurationList;
@@ -893,6 +920,7 @@
 				02EDCFA91ED062AE000B705B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
