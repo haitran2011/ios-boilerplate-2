@@ -16,4 +16,7 @@ abstract_target 'All' do
     
     target 'Domain' do
     end
+    
+    target 'DomainTests' do
+    end
 end
