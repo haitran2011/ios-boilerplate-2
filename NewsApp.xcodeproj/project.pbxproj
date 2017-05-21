@@ -31,6 +31,7 @@
 		0587388AFC9CA3651173DE08 /* Pods_All_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD8B1C0E4E90B9B17D2E4578 /* Pods_All_Domain.framework */; };
 		58906C437CA9FA2870D449B5 /* Pods_All_NewsAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECCA3A25203D37CDAB53159 /* Pods_All_NewsAppTests.framework */; };
 		9D9E0C549FF8CBF349D9B39C /* Pods_All_NewsApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE9B2EA97F145F307C8617CF /* Pods_All_NewsApp.framework */; };
+		CE66B6F01ED14D520081B53F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE769CAB1ED1440300CA619F /* RxSwift.framework */; };
 		CE769CAD1ED144AF00CA619F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE769CAB1ED1440300CA619F /* RxSwift.framework */; };
 		ECCBF3D7B680D5E9FDB5DE11 /* Pods_All_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03815B66641777ACE65535D1 /* Pods_All_DomainTests.framework */; };
 /* End PBXBuildFile section */
@@ -172,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0587388AFC9CA3651173DE08 /* Pods_All_Domain.framework in Frameworks */,
+				CE66B6F01ED14D520081B53F /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +362,7 @@
 				02EDCF8C1ED062AD000B705B /* Headers */,
 				02EDCF8D1ED062AD000B705B /* Resources */,
 				DBC325CAAE87C39FCD7F3470 /* [CP] Copy Pods Resources */,
+				CE66B6F11ED14D5F0081B53F /* Run Script Carthage */,
 			);
 			buildRules = (
 			);
@@ -647,6 +650,21 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
+		};
+		CE66B6F11ED14D5F0081B53F /* Run Script Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
+			);
+			name = "Run Script Carthage";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
 		CE769CAF1ED1450D00CA619F /* Run Script Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -949,6 +967,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Domain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -975,6 +997,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Domain/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
