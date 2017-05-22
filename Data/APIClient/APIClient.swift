@@ -25,9 +25,9 @@ enum APIError: Error {
     private let shouldUseTestData = false
 #endif
 
-struct APIClient {
+public struct APIClient {
     
-    static func request<T: APIRequest>(_ APIRequest: T) -> Observable<T.APIResponse> {
+    public static func request<T: APIRequest>(_ APIRequest: T) -> Observable<T.APIResponse> {
         let endPoint = APIRequest.baseURL + APIRequest.path
         let params = APIRequest.parameters.requestParameter() as? Parameters
         let headers = APIRequest.HTTPHeaderFields

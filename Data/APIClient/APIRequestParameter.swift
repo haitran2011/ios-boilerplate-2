@@ -6,16 +6,16 @@
 //  Copyright © 2016 JX Press Corporation. All rights reserved.
 //
 
-enum APIRequestParameterError: Error {
+public enum APIRequestParameterError: Error {
     case castError
 }
 
-protocol APIRequestParameter {
+public protocol APIRequestParameter {
     
     func requestParameter() -> Any
 }
 
-protocol APIRequestParameterDictionaryConvertible: APIRequestParameter {
+public protocol APIRequestParameterDictionaryConvertible: APIRequestParameter {
     
     func requestParameterDictionary() -> APIRequestParameterDictionary
 }
@@ -27,23 +27,23 @@ extension APIRequestParameterDictionaryConvertible {
     }
 }
 
-struct APIRequestParameterArray: APIRequestParameter {
+public struct APIRequestParameterArray: APIRequestParameter {
     
     var values: [APIRequestParameter] = []
     
-    init(_ values: [APIRequestParameter]) {
+    public init(_ values: [APIRequestParameter]) {
         self.values = values
     }
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         return self.values.map { $0.requestParameter() }
     }
 }
 
-struct APIRequestParameterDictionary: APIRequestParameter {
+public struct APIRequestParameterDictionary: APIRequestParameter {
     
     /// リクエストパラメーターの扱いについて
-    enum ReadingOption {
+    public enum NullReadingRule {
         
         case ignoreNULL
         
@@ -52,17 +52,17 @@ struct APIRequestParameterDictionary: APIRequestParameter {
     
     var value: [String: APIRequestParameter?]
     
-    let readingOption: ReadingOption
+    let nullReadingRule: NullReadingRule
     
-    init(_ value: [String: APIRequestParameter?], option: ReadingOption = .ignoreNULL) {
+    public init(_ value: [String: APIRequestParameter?], rule: NullReadingRule = .ignoreNULL) {
         self.value = value
-        self.readingOption = option
+        self.nullReadingRule = rule
     }
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         var dictionary: [String: Any] = [:]
         for (k, v) in value {
-            switch self.readingOption {
+            switch self.nullReadingRule {
             case .ignoreNULL:
                 if let parameter = v?.requestParameter() {
                     dictionary[k] = parameter
@@ -77,13 +77,18 @@ struct APIRequestParameterDictionary: APIRequestParameter {
 
 extension APIRequestParameterDictionary: ExpressibleByDictionaryLiteral {
     
-    typealias Key = String
+    public typealias Key = String
     
-    typealias Value = APIRequestParameter?
+    public typealias Value = APIRequestParameter?
     
-    init(dictionaryLiteral elements: (Key, Value)...) {
+    typealias ElementType = (key: Key, value: Value)
+    
+    typealias Body = [Key: Value]
+    
+    public init(dictionaryLiteral elements: (Key, Value)...) {
+        let initialValue = [Key: Value](minimumCapacity: elements.count)
         self.init(
-            elements.reduce([Key: Value](minimumCapacity: elements.count)) { (dictionary: [Key: Value], element:(key: Key, value: Value)) -> [Key: Value] in
+            elements.reduce(initialValue) { (dictionary: Body, element: ElementType) -> Body in
                 var d = dictionary
                 d[element.key] = element.value
                 return d
@@ -93,49 +98,49 @@ extension APIRequestParameterDictionary: ExpressibleByDictionaryLiteral {
 
 extension Bool: APIRequestParameter {
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         return self as AnyObject
     }
 }
 
 extension Int: APIRequestParameter {
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         return self as AnyObject
     }
 }
 
 extension Float: APIRequestParameter {
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         return self as AnyObject
     }
 }
 
 extension Double: APIRequestParameter {
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         return self as AnyObject
     }
 }
 
 extension String: APIRequestParameter {
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         return self as AnyObject
     }
 }
 
 extension NSNull: APIRequestParameter {
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         return self
     }
 }
 
 extension Optional: APIRequestParameter {
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         guard let bindSelf = self else {
             return NSNull().requestParameter()
         }
@@ -148,7 +153,7 @@ extension Optional: APIRequestParameter {
 
 extension Array: APIRequestParameter {
     
-    func requestParameter() -> Any {
+    public func requestParameter() -> Any {
         return APIRequestParameterArray(self.flatMap { $0 as? APIRequestParameter }).requestParameter()
     }
 }

@@ -9,10 +9,10 @@
 import Alamofire
 import Unbox
 
-typealias Method = Alamofire.HTTPMethod
-typealias ParameterEncoding = Alamofire.ParameterEncoding
+public typealias Method = Alamofire.HTTPMethod
+public typealias ParameterEncoding = Alamofire.ParameterEncoding
 
-protocol APIDataTestable {
+public protocol APIDataTestable {
     
     associatedtype TestParameter
     
@@ -21,7 +21,7 @@ protocol APIDataTestable {
     static func testData(_ parameter: TestParameter?) -> TestResponse?
 }
 
-protocol APIRequest: APIDataTestable {
+public protocol APIRequest: APIDataTestable {
     
     associatedtype APIResponse
     
@@ -44,18 +44,18 @@ protocol APIRequest: APIDataTestable {
 
 extension APIRequest {
     
-    var pathDescription: String {
+    public var pathDescription: String {
         return path
     }
 }
 
 // MARK: Type Erasure Definition
 
-struct AnyAPIRequest<A: APIRequest>: APIRequest {
+public struct AnyAPIRequest<A: APIRequest>: APIRequest {
     
-    typealias APIResponse = A.APIResponse
-    typealias TestParameter = A.TestParameter
-    typealias TestResponse = A.TestResponse
+    public typealias APIResponse = A.APIResponse
+    public typealias TestParameter = A.TestParameter
+    public typealias TestResponse = A.TestResponse
     
     fileprivate let _baseURL: String
     fileprivate let _method: Method
@@ -75,35 +75,35 @@ struct AnyAPIRequest<A: APIRequest>: APIRequest {
         _response = inner.response
     }
     
-    var baseURL: String {
+    public var baseURL: String {
         return _baseURL
     }
     
-    var method: Method {
+    public var method: Method {
         return _method
     }
     
-    var path: String {
+    public var path: String {
         return _path
     }
     
-    var parameters: APIRequestParameter? {
+    public var parameters: APIRequestParameter? {
         return _parameters
     }
     
-    var HTTPHeaderFields: [String : String] {
+    public var HTTPHeaderFields: [String : String] {
         return _HTTPHeaderFields
     }
     
-    var parameterEncoding: ParameterEncoding {
+    public var parameterEncoding: ParameterEncoding {
         return _parameterEncoding
     }
     
-    func response(fromData data: Data, URLResponse: HTTPURLResponse) -> APIResponse? {
+    public func response(fromData data: Data, URLResponse: HTTPURLResponse) -> APIResponse? {
         return _response(data, URLResponse)
     }
     
-    static func testData(_ parameter: TestParameter?) -> TestResponse? {
+    public static func testData(_ parameter: TestParameter?) -> TestResponse? {
         return A.testData(parameter)
     }
 }
