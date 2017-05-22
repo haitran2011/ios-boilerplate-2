@@ -45,8 +45,10 @@ public struct APIRequestParameterDictionary: APIRequestParameter {
     /// リクエストパラメーターの扱いについて
     public enum NullReadingRule {
         
+        /// nullが入っていてもパース時に無視します
         case ignoreNULL
         
+        /// nullが入っていた場合にNSNullとして値をセットします
         case respectNULL
     }
     
