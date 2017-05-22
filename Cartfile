@@ -1,1 +1,3 @@
+github "Alamofire/Alamofire"
 github "ReactiveX/RxSwift"
+github "JohnSundell/Unbox"
