@@ -457,7 +457,6 @@
 				02EDCF8C1ED062AD000B705B /* Headers */,
 				02EDCF8D1ED062AD000B705B /* Resources */,
 				DBC325CAAE87C39FCD7F3470 /* [CP] Copy Pods Resources */,
-				CE66B6F11ED14D5F0081B53F /* Run Script Carthage */,
 			);
 			buildRules = (
 			);
@@ -499,7 +498,6 @@
 				CEAEB4731ED1C89B00E5B23B /* Frameworks */,
 				CEAEB4741ED1C89B00E5B23B /* Headers */,
 				CEAEB4751ED1C89B00E5B23B /* Resources */,
-				CEAEB49C1ED1C92F00E5B23B /* Run Script Carthage */,
 			);
 			buildRules = (
 			);
@@ -812,21 +810,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		CE66B6F11ED14D5F0081B53F /* Run Script Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-			);
-			name = "Run Script Carthage";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		CE769CAF1ED1450D00CA619F /* Run Script Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -834,23 +817,6 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-			);
-			name = "Run Script Carthage";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		CEAEB49C1ED1C92F00E5B23B /* Run Script Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 			);
 			name = "Run Script Carthage";
 			outputPaths = (
