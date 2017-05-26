@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0283B60D1ED5ACCF0083DE60 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; };
+		0283B60E1ED5ACD40083DE60 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; };
+		0283B6101ED5AD140083DE60 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0283B6111ED5AD1A0083DE60 /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0283B6131ED5AD460083DE60 /* DataSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0283B6121ED5AD460083DE60 /* DataSpec.swift */; };
 		02AABC1D1ECF53110074E9E8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AABC1C1ECF53110074E9E8 /* AppDelegate.swift */; };
 		02AABC1F1ECF53110074E9E8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AABC1E1ECF53110074E9E8 /* ViewController.swift */; };
 		02AABC221ECF53110074E9E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AABC201ECF53110074E9E8 /* Main.storyboard */; };
@@ -39,7 +44,6 @@
 		CE66B6F01ED14D520081B53F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE769CAB1ED1440300CA619F /* RxSwift.framework */; };
 		CE769CAD1ED144AF00CA619F /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE769CAB1ED1440300CA619F /* RxSwift.framework */; };
 		CEAEB4801ED1C89B00E5B23B /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAEB4771ED1C89B00E5B23B /* Data.framework */; };
-		CEAEB4871ED1C89B00E5B23B /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEAEB4861ED1C89B00E5B23B /* DataTests.swift */; };
 		CEAEB4891ED1C89B00E5B23B /* Data.h in Headers */ = {isa = PBXBuildFile; fileRef = CEAEB4791ED1C89B00E5B23B /* Data.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CEAEB48C1ED1C89B00E5B23B /* Data.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEAEB4771ED1C89B00E5B23B /* Data.framework */; };
 		CEAEB48D1ED1C89B00E5B23B /* Data.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEAEB4771ED1C89B00E5B23B /* Data.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -125,6 +129,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		0283B60F1ED5AD0B0083DE60 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0283B6111ED5AD1A0083DE60 /* Quick.framework in CopyFiles */,
+				0283B6101ED5AD140083DE60 /* Nimble.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		02EDCF831ECF60D9000B705B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,6 +178,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0283B6121ED5AD460083DE60 /* DataSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSpec.swift; sourceTree = "<group>"; };
 		02AABC191ECF53110074E9E8 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02AABC1C1ECF53110074E9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		02AABC1E1ECF53110074E9E8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -211,7 +227,6 @@
 		CEAEB4791ED1C89B00E5B23B /* Data.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		CEAEB47A1ED1C89B00E5B23B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEAEB47F1ED1C89B00E5B23B /* DataTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DataTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CEAEB4861ED1C89B00E5B23B /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		CEAEB4881ED1C89B00E5B23B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CEAEB4951ED1C8D400E5B23B /* Sample.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sample.swift; sourceTree = "<group>"; };
 		CEAEB4981ED1C8F800E5B23B /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
@@ -295,6 +310,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEAEB4801ED1C89B00E5B23B /* Data.framework in Frameworks */,
+				0283B60D1ED5ACCF0083DE60 /* Nimble.framework in Frameworks */,
+				0283B60E1ED5ACD40083DE60 /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,7 +460,7 @@
 		CEAEB4851ED1C89B00E5B23B /* DataTests */ = {
 			isa = PBXGroup;
 			children = (
-				CEAEB4861ED1C89B00E5B23B /* DataTests.swift */,
+				0283B6121ED5AD460083DE60 /* DataSpec.swift */,
 				CEAEB4881ED1C89B00E5B23B /* Info.plist */,
 			);
 			path = DataTests;
@@ -574,7 +591,6 @@
 				02EDCF8C1ED062AD000B705B /* Headers */,
 				02EDCF8D1ED062AD000B705B /* Resources */,
 				DBC325CAAE87C39FCD7F3470 /* [CP] Copy Pods Resources */,
-				CE66B6F11ED14D5F0081B53F /* Run Script Carthage */,
 			);
 			buildRules = (
 			);
@@ -616,7 +632,6 @@
 				CEAEB4731ED1C89B00E5B23B /* Frameworks */,
 				CEAEB4741ED1C89B00E5B23B /* Headers */,
 				CEAEB4751ED1C89B00E5B23B /* Resources */,
-				CEAEB49C1ED1C92F00E5B23B /* Run Script Carthage */,
 			);
 			buildRules = (
 			);
@@ -634,6 +649,7 @@
 				CEAEB47B1ED1C89B00E5B23B /* Sources */,
 				CEAEB47C1ED1C89B00E5B23B /* Frameworks */,
 				CEAEB47D1ED1C89B00E5B23B /* Resources */,
+				0283B60F1ED5AD0B0083DE60 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -956,21 +972,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		CE66B6F11ED14D5F0081B53F /* Run Script Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-			);
-			name = "Run Script Carthage";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
 		CE769CAF1ED1450D00CA619F /* Run Script Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -978,23 +979,8 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-			);
-			name = "Run Script Carthage";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "/usr/local/bin/carthage copy-frameworks";
-		};
-		CEAEB49C1ED1C92F00E5B23B /* Run Script Carthage */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
 			);
 			name = "Run Script Carthage";
 			outputPaths = (
@@ -1082,7 +1068,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEAEB4871ED1C89B00E5B23B /* DataTests.swift in Sources */,
+				0283B6131ED5AD460083DE60 /* DataSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1189,6 +1175,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1241,6 +1228,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1575,6 +1563,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9Y6KN5AA6R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DataTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1590,6 +1582,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9Y6KN5AA6R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = DataTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
