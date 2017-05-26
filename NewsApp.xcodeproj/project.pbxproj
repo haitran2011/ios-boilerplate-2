@@ -14,6 +14,7 @@
 		024EA13A1ED8677300A43C0E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		024EA13B1ED8677900A43C0E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		024EA13D1ED868D800A43C0E /* PresentationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024EA13C1ED868D800A43C0E /* PresentationSpec.swift */; };
+		024EA13F1ED86BAF00A43C0E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024EA13E1ED86BAF00A43C0E /* ListViewController.swift */; };
 		0283B60D1ED5ACCF0083DE60 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; };
 		0283B60E1ED5ACD40083DE60 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; };
 		0283B6101ED5AD140083DE60 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -196,6 +197,7 @@
 
 /* Begin PBXFileReference section */
 		024EA13C1ED868D800A43C0E /* PresentationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationSpec.swift; sourceTree = "<group>"; };
+		024EA13E1ED86BAF00A43C0E /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0283B6121ED5AD460083DE60 /* DataSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSpec.swift; sourceTree = "<group>"; };
 		02AABC191ECF53110074E9E8 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02AABC1C1ECF53110074E9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 			isa = PBXGroup;
 			children = (
 				02D66E631ED44F1B0010B049 /* Presentation.h */,
+				024EA13E1ED86BAF00A43C0E /* ListViewController.swift */,
 				02D66E641ED44F1B0010B049 /* Info.plist */,
 			);
 			path = Presentation;
@@ -708,6 +711,7 @@
 					02D66E601ED44F1B0010B049 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 9Y6KN5AA6R;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					02D66E681ED44F1B0010B049 = {
@@ -1050,6 +1054,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024EA13F1ED86BAF00A43C0E /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1351,6 +1356,7 @@
 		02D66E781ED44F1B0010B049 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
@@ -1369,6 +1375,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rychhr.Presentation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1378,6 +1385,7 @@
 		02D66E791ED44F1B0010B049 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
