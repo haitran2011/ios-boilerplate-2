@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		024EA1351ED866C600A43C0E /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF8F1ED062AD000B705B /* Domain.framework */; };
+		024EA1361ED866D700A43C0E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE769CAB1ED1440300CA619F /* RxSwift.framework */; };
+		024EA1381ED8676000A43C0E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; };
+		024EA1391ED8676600A43C0E /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; };
+		024EA13A1ED8677300A43C0E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		024EA13B1ED8677900A43C0E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0283B60D1ED5ACCF0083DE60 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; };
 		0283B60E1ED5ACD40083DE60 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; };
 		0283B6101ED5AD140083DE60 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -129,6 +135,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		024EA1371ED8675100A43C0E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				024EA13B1ED8677900A43C0E /* Nimble.framework in CopyFiles */,
+				024EA13A1ED8677300A43C0E /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		0283B60F1ED5AD0B0083DE60 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -263,6 +280,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				024EA1351ED866C600A43C0E /* Domain.framework in Frameworks */,
+				024EA1361ED866D700A43C0E /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +290,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				02D66E6A1ED44F1B0010B049 /* Presentation.framework in Frameworks */,
+				024EA1381ED8676000A43C0E /* Quick.framework in Frameworks */,
+				024EA1391ED8676600A43C0E /* Nimble.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,6 +590,7 @@
 				02D66E651ED44F1B0010B049 /* Sources */,
 				02D66E661ED44F1B0010B049 /* Frameworks */,
 				02D66E671ED44F1B0010B049 /* Resources */,
+				024EA1371ED8675100A43C0E /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1336,6 +1358,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Presentation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1359,6 +1385,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Presentation/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -1377,6 +1407,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9Y6KN5AA6R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PresentationTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1392,6 +1426,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 9Y6KN5AA6R;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = PresentationTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -1633,6 +1671,7 @@
 				02D66E791ED44F1B0010B049 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02D66E7D1ED44F1B0010B049 /* Build configuration list for PBXNativeTarget "PresentationTests" */ = {
 			isa = XCConfigurationList;
@@ -1641,6 +1680,7 @@
 				02D66E7B1ED44F1B0010B049 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		02EDCFAA1ED062AE000B705B /* Build configuration list for PBXNativeTarget "Domain" */ = {
 			isa = XCConfigurationList;
