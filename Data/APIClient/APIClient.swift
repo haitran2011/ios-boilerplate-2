@@ -10,9 +10,7 @@ import Alamofire
 import Alamofire.Swift
 import RxSwift
 
-typealias APIProgress = Float
-
-enum APIError: Error {
+public enum APIError: Error {
     case connectionError(Error)
     case invalidResponse(AnyObject?)
     case parseError(AnyObject?)
@@ -20,7 +18,7 @@ enum APIError: Error {
 
 /// アプリ内で用意しているテストデータを返すようにするフラグ
 #if DEBUG
-    var shouldUseTestData = false
+    public var shouldUseTestData = false
 #else
     private let shouldUseTestData = false
 #endif
