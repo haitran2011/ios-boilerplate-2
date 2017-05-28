@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0200C8C31EDA6EE700940A62 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200C8C21EDA6EE700940A62 /* ListPresenter.swift */; };
 		0200C8C51EDA6F4E00940A62 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200C8C41EDA6F4E00940A62 /* ListViewController.swift */; };
+		0200C8C71EDA713900940A62 /* List.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0200C8C61EDA713900940A62 /* List.storyboard */; };
 		024EA1351ED866C600A43C0E /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF8F1ED062AD000B705B /* Domain.framework */; };
 		024EA1361ED866D700A43C0E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE769CAB1ED1440300CA619F /* RxSwift.framework */; };
 		024EA1381ED8676000A43C0E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; };
@@ -199,6 +200,7 @@
 /* Begin PBXFileReference section */
 		0200C8C21EDA6EE700940A62 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPresenter.swift; path = Presenters/ListPresenter.swift; sourceTree = "<group>"; };
 		0200C8C41EDA6F4E00940A62 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = Scenes/List/ViewControllers/ListViewController.swift; sourceTree = "<group>"; };
+		0200C8C61EDA713900940A62 /* List.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = List.storyboard; path = Scenes/List/List.storyboard; sourceTree = "<group>"; };
 		024EA13C1ED868D800A43C0E /* PresentationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationSpec.swift; sourceTree = "<group>"; };
 		0283B6121ED5AD460083DE60 /* DataSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSpec.swift; sourceTree = "<group>"; };
 		02AABC191ECF53110074E9E8 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -354,6 +356,7 @@
 		0200C8BE1EDA6C4900940A62 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				0200C8C61EDA713900940A62 /* List.storyboard */,
 				0200C8C11EDA6EAF00940A62 /* ViewControllers */,
 			);
 			name = List;
@@ -828,6 +831,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0200C8C71EDA713900940A62 /* List.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
