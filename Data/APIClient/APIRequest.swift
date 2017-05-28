@@ -12,7 +12,7 @@ import Unbox
 public typealias Method = Alamofire.HTTPMethod
 public typealias ParameterEncoding = Alamofire.ParameterEncoding
 
-public protocol APIDataTestable {
+public protocol APITestDataRespondable {
     
     associatedtype TestParameter
     
@@ -21,7 +21,7 @@ public protocol APIDataTestable {
     static func testData(_ parameter: TestParameter?) -> TestResponse?
 }
 
-public protocol APIRequest: APIDataTestable {
+public protocol APIRequest: APITestDataRespondable {
     
     associatedtype APIResponse
     
