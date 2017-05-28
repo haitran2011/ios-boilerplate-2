@@ -9,7 +9,7 @@
 import Foundation
 import Domain
 
-protocol ListPresenter: class {
+public protocol ListPresenter: class {
     var items: [ListItem] { get }
     func fetchItems()
 }
