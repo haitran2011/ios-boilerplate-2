@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0200C8C01EDA6E0C00940A62 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200C8BF1EDA6E0C00940A62 /* ListPresenter.swift */; };
+		0200C8C31EDA6EE700940A62 /* ListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200C8C21EDA6EE700940A62 /* ListPresenter.swift */; };
+		0200C8C51EDA6F4E00940A62 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0200C8C41EDA6F4E00940A62 /* ListViewController.swift */; };
 		024EA1351ED866C600A43C0E /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF8F1ED062AD000B705B /* Domain.framework */; };
 		024EA1361ED866D700A43C0E /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE769CAB1ED1440300CA619F /* RxSwift.framework */; };
 		024EA1381ED8676000A43C0E /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; };
@@ -15,7 +16,6 @@
 		024EA13A1ED8677300A43C0E /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		024EA13B1ED8677900A43C0E /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		024EA13D1ED868D800A43C0E /* PresentationSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024EA13C1ED868D800A43C0E /* PresentationSpec.swift */; };
-		024EA13F1ED86BAF00A43C0E /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 024EA13E1ED86BAF00A43C0E /* ListViewController.swift */; };
 		0283B60D1ED5ACCF0083DE60 /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; };
 		0283B60E1ED5ACD40083DE60 /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02EDCF811ECF6094000B705B /* Quick.framework */; };
 		0283B6101ED5AD140083DE60 /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 02EDCF7F1ECF608E000B705B /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -197,9 +197,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0200C8BF1EDA6E0C00940A62 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListPresenter.swift; sourceTree = "<group>"; };
+		0200C8C21EDA6EE700940A62 /* ListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListPresenter.swift; path = Presenters/ListPresenter.swift; sourceTree = "<group>"; };
+		0200C8C41EDA6F4E00940A62 /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListViewController.swift; path = Scenes/List/ViewControllers/ListViewController.swift; sourceTree = "<group>"; };
 		024EA13C1ED868D800A43C0E /* PresentationSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationSpec.swift; sourceTree = "<group>"; };
-		024EA13E1ED86BAF00A43C0E /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		0283B6121ED5AD460083DE60 /* DataSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataSpec.swift; sourceTree = "<group>"; };
 		02AABC191ECF53110074E9E8 /* NewsApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		02AABC1C1ECF53110074E9E8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -354,14 +354,23 @@
 		0200C8BE1EDA6C4900940A62 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				0200C8C11EDA6EAF00940A62 /* ViewControllers */,
 			);
 			name = List;
+			sourceTree = "<group>";
+		};
+		0200C8C11EDA6EAF00940A62 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0200C8C41EDA6F4E00940A62 /* ListViewController.swift */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		024EA1401ED8743900A43C0E /* Presenters */ = {
 			isa = PBXGroup;
 			children = (
-				0200C8BF1EDA6E0C00940A62 /* ListPresenter.swift */,
+				0200C8C21EDA6EE700940A62 /* ListPresenter.swift */,
 			);
 			name = Presenters;
 			sourceTree = "<group>";
@@ -426,7 +435,6 @@
 				024EA1401ED8743900A43C0E /* Presenters */,
 				0200C8BD1EDA6A1200940A62 /* Scenes */,
 				02D66E631ED44F1B0010B049 /* Presentation.h */,
-				024EA13E1ED86BAF00A43C0E /* ListViewController.swift */,
 				02D66E641ED44F1B0010B049 /* Info.plist */,
 			);
 			path = Presentation;
@@ -1081,8 +1089,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0200C8C01EDA6E0C00940A62 /* ListPresenter.swift in Sources */,
-				024EA13F1ED86BAF00A43C0E /* ListViewController.swift in Sources */,
+				0200C8C31EDA6EE700940A62 /* ListPresenter.swift in Sources */,
+				0200C8C51EDA6F4E00940A62 /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
