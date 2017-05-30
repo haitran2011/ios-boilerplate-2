@@ -16,7 +16,7 @@ public enum APIError: Error {
     case parseError(AnyObject?)
 }
 
-/// アプリ内で用意しているテストデータを返すようにするフラグ
+/// APICleintのリクエストの結果としてモックを返すようにするフラグ
 #if DEBUG
     public var shouldUseTestData = false
 #else
