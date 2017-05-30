@@ -39,6 +39,12 @@ struct TestStructRequest: APIRequest {
     
     typealias APIResponse = TestResponse
     
+    var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
     var baseURL: String {
         return "https://hogehoge.com"
     }
@@ -48,7 +54,7 @@ struct TestStructRequest: APIRequest {
     }
     
     var path: String {
-        return "/test"
+        return "/test/\(self.name)"
     }
     
     var parameters: APIRequestParameter? {
@@ -72,12 +78,12 @@ class APIRequestSpec: QuickSpec {
     
     override func spec() {
         
-        let structRequest = TestStructRequest()
+        let structRequest = TestStructRequest(name: "boy")
         
         it("test request parameter check") {
             expect(structRequest.baseURL).to(equal("https://hogehoge.com"))
-            expect(structRequest.path).to(equal("/test"))
-            expect(structRequest.baseURL + structRequest.path).to(equal("https://hogehoge.com/test"))
+            expect(structRequest.path).to(equal("/test/boy"))
+            expect(structRequest.baseURL + structRequest.path).to(equal("https://hogehoge.com/test/boy"))
             expect(structRequest.parameters).to(beNil())
             expect(structRequest.HTTPHeaderFields).to(equal([:]))
         }
