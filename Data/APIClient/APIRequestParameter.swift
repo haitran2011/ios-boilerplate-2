@@ -46,17 +46,17 @@ public struct APIRequestParameterDictionary: APIRequestParameter {
     public enum NullReadingRule {
         
         /// nullが入っていてもパース時に無視します
-        case ignoreNULL
+        case ignoreNull
         
         /// nullが入っていた場合にNSNullとして値をセットします
-        case respectNULL
+        case respectNull
     }
     
     var value: [String: APIRequestParameter?]
     
     let nullReadingRule: NullReadingRule
     
-    public init(_ value: [String: APIRequestParameter?], rule: NullReadingRule = .ignoreNULL) {
+    public init(_ value: [String: APIRequestParameter?], rule: NullReadingRule = .ignoreNull) {
         self.value = value
         self.nullReadingRule = rule
     }
@@ -65,11 +65,11 @@ public struct APIRequestParameterDictionary: APIRequestParameter {
         var dictionary: [String: Any] = [:]
         for (k, v) in value {
             switch self.nullReadingRule {
-            case .ignoreNULL:
+            case .ignoreNull:
                 if let parameter = v?.requestParameter() {
                     dictionary[k] = parameter
                 }
-            case .respectNULL:
+            case .respectNull:
                 dictionary[k] = v?.requestParameter() ?? NSNull().requestParameter()
             }
         }
