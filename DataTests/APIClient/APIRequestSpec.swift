@@ -64,7 +64,7 @@ struct TestStructRequest: APIRequest {
     }
     
     func response(fromData data: Data, URLResponse: HTTPURLResponse) -> APIResponse? {
-        return nil
+        return try? Unbox.unbox(data: data)
     }
 }
 
@@ -87,6 +87,15 @@ class APIRequestSpec: QuickSpec {
             expect(defaultTestResponse?.text).to(equal("hello world"))
             let customTestResponse = TestStructRequest.testData("TEST")
             expect(customTestResponse?.text).to(equal("TEST"))
+        }
+        
+        it("test unbox response") {
+            let dummyJSONDic: [String: String] = ["text": "hello dummy response"]
+            guard let dummyData = try? JSONSerialization.data(withJSONObject: dummyJSONDic, options: []) else {
+                return
+            }
+            let response = structRequest.response(fromData: dummyData, URLResponse: HTTPURLResponse())
+            expect(response?.text).to(equal("hello dummy response"))
         }
     }
 }
