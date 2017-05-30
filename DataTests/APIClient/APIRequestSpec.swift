@@ -18,10 +18,13 @@ struct TestResponse {
 
 struct TestStructRequest: APIRequest {
     
-    typealias TestParameter = Void
+    typealias TestParameter = String
     
     static func testData(_ parameter: TestParameter?) -> TestResponse? {
-        return TestResponse(text: "hello world")
+        guard let parameter = parameter else {
+            return TestResponse(text: "hello world")
+        }
+        return TestResponse(text: parameter)
     }
     
     typealias APIResponse = TestResponse
@@ -70,8 +73,10 @@ class APIRequestSpec: QuickSpec {
         }
         
         it("test request response check") {
-            let response = TestStructRequest.testData(nil)
-            expect(response?.text).to(equal("hello world"))
+            let defaultTestResponse = TestStructRequest.testData(nil)
+            expect(defaultTestResponse?.text).to(equal("hello world"))
+            let customTestResponse = TestStructRequest.testData("TEST")
+            expect(customTestResponse?.text).to(equal("TEST"))
         }
     }
 }
