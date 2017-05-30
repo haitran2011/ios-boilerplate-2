@@ -9,11 +9,21 @@
 import Quick
 import Nimble
 @testable import Data
-import Alamofire
 
-struct TestResponse {
+import Alamofire
+import Unbox
+
+struct TestResponse: Unboxable {
     
     var text: String
+    
+    init(unboxer: Unboxer) throws {
+        self.init(text: try unboxer.unbox(key: "text"))
+    }
+    
+    init(text: String) {
+        self.text = text
+    }
 }
 
 struct TestStructRequest: APIRequest {
@@ -49,7 +59,7 @@ struct TestStructRequest: APIRequest {
         return [:]
     }
     
-    var parameterEncoding: ParameterEncoding {
+    var parameterEncoding: APIRequestParameterEncoding {
         return JSONEncoding()
     }
     
