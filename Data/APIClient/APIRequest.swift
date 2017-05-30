@@ -9,8 +9,9 @@
 import Alamofire
 import Unbox
 
-public typealias Method = Alamofire.HTTPMethod
-public typealias ParameterEncoding = Alamofire.ParameterEncoding
+public typealias APIRequestMethod = Alamofire.HTTPMethod
+
+public typealias APIRequestParameterEncoding = Alamofire.ParameterEncoding
 
 public protocol APITestDataRespondable {
     
@@ -27,7 +28,7 @@ public protocol APIRequest: APITestDataRespondable {
     
     var baseURL: String { get }
     
-    var method: Method { get }
+    var method: APIRequestMethod { get }
     
     var path: String { get }
     
@@ -58,7 +59,7 @@ public struct AnyAPIRequest<A: APIRequest>: APIRequest {
     public typealias TestResponse = A.TestResponse
     
     fileprivate let _baseURL: String
-    fileprivate let _method: Method
+    fileprivate let _method: APIRequestMethod
     fileprivate let _path: String
     fileprivate let _parameters: APIRequestParameter?
     fileprivate let _HTTPHeaderFields: [String : String]
@@ -79,7 +80,7 @@ public struct AnyAPIRequest<A: APIRequest>: APIRequest {
         return _baseURL
     }
     
-    public var method: Method {
+    public var method: APIRequestMethod {
         return _method
     }
     
