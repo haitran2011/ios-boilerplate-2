@@ -39,7 +39,7 @@ public struct APIClient {
             }
         }
         let dispose = Disposables.create()
-        return Single<T.APIResponse>.create(subscribe: { (observer) -> Disposable in
+        return Single.create(subscribe: { (observer) -> Disposable in
             Alamofire.request(endPoint, method: method, parameters: params, encoding: encoding, headers: headers)
                 .validate()
                 .response(completionHandler: { (response: DefaultDataResponse) in
