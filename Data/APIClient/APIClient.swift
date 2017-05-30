@@ -25,7 +25,7 @@ public enum APIError: Error {
 
 public struct APIClient {
     
-    public static func request<T: APIRequest>(_ APIRequest: T) -> Observable<T.APIResponse> {
+    public static func request<T: APIRequest>(_ APIRequest: T) -> Single<T.APIResponse> {
         let endPoint = APIRequest.baseURL + APIRequest.path
         let params = APIRequest.parameters.requestParameter() as? Parameters
         let headers = APIRequest.HTTPHeaderFields
@@ -35,30 +35,29 @@ public struct APIClient {
         if shouldUseTestData {
             let request = AnyAPIRequest<T>(APIRequest)
             if let testData = type(of: request).testData(nil) as? T.APIResponse {
-                return Observable.just(testData)
+                return Single.just(testData)
             }
         }
         let dispose = Disposables.create()
-        return Observable.create { observer in
+        return Single<T.APIResponse>.create(subscribe: { (observer) -> Disposable in
             Alamofire.request(endPoint, method: method, parameters: params, encoding: encoding, headers: headers)
                 .validate()
                 .response(completionHandler: { (response: DefaultDataResponse) in
                     if let error = response.error {
-                        observer.onError(APIError.connectionError(error))
+                        observer(.error(APIError.connectionError(error)))
                     } else if let URLResponse = response.response, let data = response.data,
                         self.isValid(response: URLResponse) {
                         guard let model = APIRequest.response(fromData: data, URLResponse: URLResponse) else {
-                            observer.onError(APIError.parseError(data as NSData))
+                            observer(.error(APIError.parseError(data as NSData)))
                             return
                         }
-                        observer.onNext(model)
-                        observer.onCompleted()
+                        observer(.success(model))
                     } else {
-                        observer.onError(APIError.invalidResponse(response.response))
+                        observer(.error(APIError.invalidResponse(response.response)))
                     }
-            })
+                })
             return dispose
-        }
+        })
     }
     
     static func isValid(response: HTTPURLResponse) -> Bool {
