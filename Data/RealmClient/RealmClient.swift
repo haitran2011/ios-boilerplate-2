@@ -8,43 +8,112 @@
 
 import RealmSwift
 
-struct RealmClient {
+public struct RealmClient {
     
-    fileprivate static var source: [String: Realm] = [:]
+    // Realmの保存先のパスを一度だけ表示するためのフラグ
+    private static var isShowRealmPath: Bool = false
+    
+    enum Error: Swift.Error {
+        case notSettingBasePath
+        case notSettingRealmFilePath
+    }
     
     fileprivate init() {}
+    
+    fileprivate static func realm(for config: RealmConfig) throws -> RealmSwift.Realm {
+        do {
+            let configration = try self.realmConfigration(for: config)
+            guard let filePath = configration.fileURL?.absoluteString else {
+                throw Error.notSettingRealmFilePath
+            }
+            if !FileManager.default.fileExists(atPath: filePath) {
+                try FileManager.default.createDirectory(
+                    atPath: filePath, withIntermediateDirectories: false, attributes: nil)
+            }
+            #if DEBUG
+                if !isShowRealmPath {
+                    isShowRealmPath = true
+                    print("Open realm path:\n \(filePath)")
+                }
+            #endif
+            let realm = try Realm(configuration: self.realmConfigration(for: config))
+            return realm
+        } catch {
+            throw error
+        }
+    }
+    
+    fileprivate static func realmConfigration(for config: RealmConfig) throws -> RealmSwift.Realm.Configuration {
+        switch config.store {
+        case .directory(let directory):
+            guard let basePath = directory.basePath else {
+                throw Error.notSettingBasePath
+            }
+            return RealmSwift.Realm.Configuration(
+                fileURL: URL(fileURLWithPath: basePath + config.filePath),
+                inMemoryIdentifier: nil,
+                syncConfiguration: nil,
+                encryptionKey: config.encryptionKey,
+                readOnly: config.readOnly,
+                schemaVersion: config.schemaVersion,
+                migrationBlock: config.migrationBlock,
+                deleteRealmIfMigrationNeeded: config.deleteRealmIfMigrationNeeded,
+                shouldCompactOnLaunch: nil,
+                objectTypes: config.objectTypes)
+        case .inMemory(let identifier):
+            return RealmSwift.Realm.Configuration(
+                fileURL: nil,
+                inMemoryIdentifier: identifier,
+                syncConfiguration: nil,
+                encryptionKey: config.encryptionKey,
+                readOnly: config.readOnly,
+                schemaVersion: config.schemaVersion,
+                migrationBlock: config.migrationBlock,
+                deleteRealmIfMigrationNeeded: config.deleteRealmIfMigrationNeeded,
+                shouldCompactOnLaunch: nil,
+                objectTypes: config.objectTypes)
+            
+        }
+    }
 }
 
-enum RealmBaseDirectory {
+extension RealmClient {
     
-    /// 'Documents/' バックアップ対象となりユーザーから見える
-    case documents
-    
-    /// 'Documents/Inbox/' バックアップ対象となりユーザーから見える、他のアプリと共有できる
-    case sharedAppDocuments
-    
-    /// 'Library/Caches/' バックアップ対象外でユーザーから見えない
-    case libraryCaches
-    
-    case inMemory
-    case custom(baseDirectory: String)
+    public enum Store {
+        
+        case directory(Directory)
+        
+        case inMemory(String)
+    }
 }
 
-protocol RealmConfigration {
+extension RealmClient {
     
-    var baseDirectory: RealmBaseDirectory { get }
-    
-    var path: String { get }
-    
-    var encryptionKey: Data? { get }
-    
-    var readOnly: Bool { get }
-    
-    var schemaVersion: UInt64 { get }
-    
-    var migrationBlock: RealmSwift.MigrationBlock? { get }
-    
-    var deleteRealmIfMigrationNeeded: Bool { get }
-    
-    var objectTypes: [Object.Type]? { get }
+    public enum Directory {
+        
+        case home
+        
+        case temporary
+        
+        /// see
+        /// https://developer.apple.com/reference/foundation/1414224-nssearchpathfordirectoriesindoma?language=swift
+        case searchPath(directory: FileManager.SearchPathDirectory)
+        
+        /// ディレクトリを指定
+        case custom(basePath: String)
+        
+        var basePath: String? {
+            switch self {
+            case .home:
+                return NSHomeDirectory()
+            case .searchPath(let directory):
+                return NSSearchPathForDirectoriesInDomains(
+                    directory, .userDomainMask, true).first
+            case .temporary:
+                return NSTemporaryDirectory()
+            case .custom(let basePath):
+                return basePath
+            }
+        }
+    }
 }
