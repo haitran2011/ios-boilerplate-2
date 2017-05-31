@@ -10,9 +10,6 @@ import RealmSwift
 
 public struct RealmClient {
     
-    // Realmの保存先のパスを一度だけ表示するためのフラグ
-    private static var isShowRealmPath: Bool = false
-    
     enum Error: Swift.Error {
         case notSettingBasePath
         case notSettingRealmFilePath
@@ -30,12 +27,6 @@ public struct RealmClient {
                 try FileManager.default.createDirectory(
                     atPath: filePath, withIntermediateDirectories: false, attributes: nil)
             }
-            #if DEBUG
-                if !isShowRealmPath {
-                    isShowRealmPath = true
-                    print("Open realm path:\n \(filePath)")
-                }
-            #endif
             let realm = try Realm(configuration: self.realmConfigration(for: config))
             return realm
         } catch {

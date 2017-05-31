@@ -55,7 +55,7 @@
 		CECFBD591EDDE1D100B471E7 /* RealmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFBD581EDDE1D100B471E7 /* RealmClient.swift */; };
 		CECFBD5C1EDDE67E00B471E7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECFBD5A1EDDE67E00B471E7 /* Realm.framework */; };
 		CECFBD5D1EDDE67E00B471E7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECFBD5B1EDDE67E00B471E7 /* RealmSwift.framework */; };
-		CECFBD5F1EDE60B700B471E7 /* RealmConfigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFBD5E1EDE60B700B471E7 /* RealmConfigration.swift */; };
+		CECFBD5F1EDE60B700B471E7 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFBD5E1EDE60B700B471E7 /* RealmConfig.swift */; };
 		ECCBF3D7B680D5E9FDB5DE11 /* Pods_All_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03815B66641777ACE65535D1 /* Pods_All_DomainTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -215,7 +215,7 @@
 		CECFBD581EDDE1D100B471E7 /* RealmClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmClient.swift; sourceTree = "<group>"; };
 		CECFBD5A1EDDE67E00B471E7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		CECFBD5B1EDDE67E00B471E7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
-		CECFBD5E1EDE60B700B471E7 /* RealmConfigration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfigration.swift; sourceTree = "<group>"; };
+		CECFBD5E1EDE60B700B471E7 /* RealmConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
 		EB0BF5CE877EF6F324605290 /* Pods-All-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-Domain/Pods-All-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9B2EA97F145F307C8617CF /* Pods_All_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE16D64ECF7FB53305091BDD /* Pods-All-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-All-Domain/Pods-All-Domain.release.xcconfig"; sourceTree = "<group>"; };
@@ -443,7 +443,7 @@
 			isa = PBXGroup;
 			children = (
 				CECFBD581EDDE1D100B471E7 /* RealmClient.swift */,
-				CECFBD5E1EDE60B700B471E7 /* RealmConfigration.swift */,
+				CECFBD5E1EDE60B700B471E7 /* RealmConfig.swift */,
 			);
 			path = RealmClient;
 			sourceTree = "<group>";
@@ -956,7 +956,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CECFBD5F1EDE60B700B471E7 /* RealmConfigration.swift in Sources */,
+				CECFBD5F1EDE60B700B471E7 /* RealmConfig.swift in Sources */,
 				CE6A7EB01ED338A3001ECE71 /* APIRequestParameter.swift in Sources */,
 				CEAEB4961ED1C8D400E5B23B /* Sample.swift in Sources */,
 				CE6A7EAF1ED338A3001ECE71 /* APIRequest.swift in Sources */,

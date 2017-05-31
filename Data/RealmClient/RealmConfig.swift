@@ -1,5 +1,5 @@
 //
-//  RealmConfigration.swift
+//  RealmConfig.swift
 //  NewsApp
 //
 //  Created by moaible on 2017/05/31.
