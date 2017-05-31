@@ -53,6 +53,8 @@
 		CECFBD531EDDC9E300B471E7 /* APIRequestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFBD521EDDC9E300B471E7 /* APIRequestSpec.swift */; };
 		CECFBD551EDDDA6600B471E7 /* APIClientSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFBD541EDDDA6600B471E7 /* APIClientSpec.swift */; };
 		CECFBD591EDDE1D100B471E7 /* RealmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECFBD581EDDE1D100B471E7 /* RealmClient.swift */; };
+		CECFBD5C1EDDE67E00B471E7 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECFBD5A1EDDE67E00B471E7 /* Realm.framework */; };
+		CECFBD5D1EDDE67E00B471E7 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CECFBD5B1EDDE67E00B471E7 /* RealmSwift.framework */; };
 		ECCBF3D7B680D5E9FDB5DE11 /* Pods_All_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03815B66641777ACE65535D1 /* Pods_All_DomainTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -210,6 +212,8 @@
 		CECFBD521EDDC9E300B471E7 /* APIRequestSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestSpec.swift; sourceTree = "<group>"; };
 		CECFBD541EDDDA6600B471E7 /* APIClientSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIClientSpec.swift; sourceTree = "<group>"; };
 		CECFBD581EDDE1D100B471E7 /* RealmClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmClient.swift; sourceTree = "<group>"; };
+		CECFBD5A1EDDE67E00B471E7 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
+		CECFBD5B1EDDE67E00B471E7 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
 		EB0BF5CE877EF6F324605290 /* Pods-All-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Domain.debug.xcconfig"; path = "Pods/Target Support Files/Pods-All-Domain/Pods-All-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		EE9B2EA97F145F307C8617CF /* Pods_All_NewsApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_All_NewsApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE16D64ECF7FB53305091BDD /* Pods-All-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-All-Domain.release.xcconfig"; path = "Pods/Target Support Files/Pods-All-Domain/Pods-All-Domain.release.xcconfig"; sourceTree = "<group>"; };
@@ -261,6 +265,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CECFBD5C1EDDE67E00B471E7 /* Realm.framework in Frameworks */,
+				CECFBD5D1EDDE67E00B471E7 /* RealmSwift.framework in Frameworks */,
 				CEAEB49A1ED1C8F800E5B23B /* Alamofire.framework in Frameworks */,
 				CEAEB49B1ED1C8F800E5B23B /* Unbox.framework in Frameworks */,
 				CEAEB4971ED1C8F800E5B23B /* RxSwift.framework in Frameworks */,
@@ -373,6 +379,8 @@
 		B9E881B312DB135C4FB0151D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CECFBD5A1EDDE67E00B471E7 /* Realm.framework */,
+				CECFBD5B1EDDE67E00B471E7 /* RealmSwift.framework */,
 				CEAEB4981ED1C8F800E5B23B /* Alamofire.framework */,
 				CEAEB4991ED1C8F800E5B23B /* Unbox.framework */,
 				CE769CAB1ED1440300CA619F /* RxSwift.framework */,
@@ -879,6 +887,8 @@
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Alamofire.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Unbox.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			name = "Run Script Carthage";
 			outputPaths = (
