@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Presentation
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,7 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool { // swiftlint:disable:this line_length
-        // Override point for customization after application launch.
+        
+        let bundle = Bundle(for: ListViewController.self)
+        let storyboard = UIStoryboard(name: "List", bundle: bundle)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = storyboard.instantiateInitialViewController()
+        window?.makeKeyAndVisible()
+        
         return true
     }
 
