@@ -13,10 +13,4 @@ abstract_target 'All' do
     
     target 'NewsAppTests' do
     end
-    
-    target 'Domain' do
-    end
-    
-    target 'DomainTests' do
-    end
 end
