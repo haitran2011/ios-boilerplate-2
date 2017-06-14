@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool { // swiftlint:disable:this line_length
         
         window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = UIViewController(nibName: nil, bundle: nil)
         window?.makeKeyAndVisible()
         
         return true
