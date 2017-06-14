@@ -8,9 +8,9 @@ abstract_target 'All' do
     
     pod 'SwiftLint'
     
-    target 'NewsApp' do
+    target 'Example' do
     end
     
-    target 'NewsAppTests' do
+    target 'ExampleTests' do
     end
 end
